@@ -1,0 +1,170 @@
+[gd_scene load_steps=19 format=3 uid="uid://bdjeq1dahcop1"]
+
+[ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://cyclrs00p5x47" path="res://scripts/main.gd" id="1_tbgi4"]
+[ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://bx27pp5t70upq" path="res://scripts/elevator.gd" id="2_o6xl0"]
+[ext_resource type="PackedScene" uid="uid://dsqcyyjt3hacl" path="res://prefabs/guest_interactable.tscn" id="2_tbgi4"]
+[ext_resource type="Script" uid="uid://b5b2afdujt3om" path="res://scripts/entrance.gd" id="2_tefeu"]
+[ext_resource type="Script" uid="uid://dixu1hmoi0tk" path="res://scripts/guest_mgt.gd" id="2_tipki"]
+[ext_resource type="PackedScene" uid="uid://b181pbq2sxo0" path="res://prefabs/guest_tasks/go_to_reception.tscn" id="3_85g3d"]
+[ext_resource type="PackedScene" uid="uid://swncf76j0yrp" path="res://prefabs/guest_tasks/discuss_stay.tscn" id="4_choun"]
+[ext_resource type="PackedScene" uid="uid://bqqftwfar4q0x" path="res://prefabs/guest_tasks/go_to_room.tscn" id="5_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://udtfg7f1sikw" path="res://prefabs/guest_tasks/wait_in_room.tscn" id="6_eb6dy"]
+[ext_resource type="Script" uid="uid://cq8k7it33yhhv" path="res://scripts/room_mgt.gd" id="7_a8y0u"]
+[ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="10_trceg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
+size = Vector2(100, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(236, 221)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
+size = Vector2(431, 223)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trceg"]
+radius = 6.0827627
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_tbgi4")
+
+[node name="guest_mgt" type="Node2D" parent="."]
+script = ExtResource("2_tipki")
+go_to_reception = ExtResource("3_85g3d")
+discuss_stay = ExtResource("4_choun")
+go_to_room = ExtResource("5_ya4ey")
+wait_in_room = ExtResource("6_eb6dy")
+
+[node name="room_mgt" type="Node2D" parent="."]
+script = ExtResource("7_a8y0u")
+
+[node name="world" type="Node2D" parent="."]
+
+[node name="elevator" type="Area2D" parent="world" node_paths=PackedStringArray("floor_1", "floor_2")]
+script = ExtResource("2_o6xl0")
+floor_1 = NodePath("../floor_1")
+floor_2 = NodePath("../floor_2")
+
+[node name="shape" type="CollisionShape2D" parent="world/elevator"]
+shape = SubResource("RectangleShape2D_jkv2x")
+
+[node name="guest_interactable" parent="world/elevator" instance=ExtResource("2_tbgi4")]
+
+[node name="visual" type="Node2D" parent="world/elevator"]
+
+[node name="sprite" type="Sprite2D" parent="world/elevator/visual"]
+texture = ExtResource("1_o5qli")
+
+[node name="center" type="CenterContainer" parent="world/elevator/visual"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="world/elevator/visual/center"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "ELEVATOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="floor_2" type="Node2D" parent="world"]
+position = Vector2(0, -253)
+
+[node name="room_1" type="Area2D" parent="world/floor_2"]
+position = Vector2(273, 0)
+script = ExtResource("10_trceg")
+
+[node name="shape" type="CollisionShape2D" parent="world/floor_2/room_1"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_a8y0u")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="sprite" type="Sprite2D" parent="world/floor_2/room_1"]
+self_modulate = Color(0.5137255, 1, 0.5372549, 0.5019608)
+z_index = -335
+scale = Vector2(2.3677735, 2.2317872)
+texture = ExtResource("1_o5qli")
+
+[node name="floor_1" type="Node2D" parent="world"]
+
+[node name="lobby" type="Area2D" parent="world/floor_1"]
+position = Vector2(273, 0)
+script = ExtResource("10_trceg")
+
+[node name="shape" type="CollisionShape2D" parent="world/floor_1/lobby"]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_trceg")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="sprite" type="Sprite2D" parent="world/floor_1/lobby"]
+self_modulate = Color(1, 0.5137255, 0.5372549, 0.5019608)
+z_index = -335
+scale = Vector2(4.327773, 2.2317872)
+texture = ExtResource("1_o5qli")
+
+[node name="entrance" type="Node2D" parent="world/floor_1/lobby"]
+position = Vector2(237, 0)
+script = ExtResource("2_tefeu")
+
+[node name="guest_interactable" parent="world/floor_1/lobby/entrance" instance=ExtResource("2_tbgi4")]
+
+[node name="visual" type="Node2D" parent="world/floor_1/lobby/entrance"]
+
+[node name="sprite" type="Sprite2D" parent="world/floor_1/lobby/entrance/visual"]
+texture = ExtResource("1_o5qli")
+
+[node name="center" type="CenterContainer" parent="world/floor_1/lobby/entrance/visual"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="world/floor_1/lobby/entrance/visual/center"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "ENTRANCE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="reception" type="Node2D" parent="world/floor_1/lobby"]
+position = Vector2(-48, 0)
+script = ExtResource("1_jyhfs")
+
+[node name="guest_interactable" parent="world/floor_1/lobby/reception" instance=ExtResource("2_tbgi4")]
+
+[node name="visual" type="Node2D" parent="world/floor_1/lobby/reception"]
+
+[node name="sprite" type="Sprite2D" parent="world/floor_1/lobby/reception/visual"]
+texture = ExtResource("1_o5qli")
+
+[node name="center" type="CenterContainer" parent="world/floor_1/lobby/reception/visual"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="world/floor_1/lobby/reception/visual/center"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "RECEPTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="guest" type="Node2D" parent="world/floor_1"]
+position = Vector2(486, 0)
+script = ExtResource("2_0wfyh")
+
+[node name="room_detector" type="CollisionShape2D" parent="world/floor_1/guest"]
+shape = SubResource("CircleShape2D_trceg")
+
+[node name="tasks" type="Node2D" parent="world/floor_1/guest"]
+
+[node name="visual" type="Node2D" parent="world/floor_1/guest"]
+
+[node name="sprite" type="Sprite2D" parent="world/floor_1/guest/visual"]
+self_modulate = Color(0.49019608, 0.50980395, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_o5qli")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(133, 0)
