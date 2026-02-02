@@ -1,11 +1,17 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var main = get_node('/root/main')
+@onready var world = get_node('/root/main/world')
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func get_room_node(room_number):
+	var rooms = main.get_children_in_group(world, 'room')
+	for room in rooms:
+		if 'number' in room and room.number == room_number:
+			return room
+	
+	return null
+
+
+func get_floor(node):
+	return main.find_in_parents(node, 'floor')

@@ -51,8 +51,13 @@ func insert_task(index, task_name):
 	tasks.add_child(new_task)
 	tasks.move_child(new_task, index)
 
-func start_next_task():	
-	current_task = null
+	if index == 0:
+		current_task = null
 
 func move_guest_toward(node, delta):
-	global_position = global_position.move_toward(node.global_position, MOVE_SPEED * delta)
+	global_position.x = move_toward(global_position.x, node.global_position.x, MOVE_SPEED * delta)
+
+func move_to(room_node):
+	self.reparent(room_node)
+	position = Vector2.ZERO
+

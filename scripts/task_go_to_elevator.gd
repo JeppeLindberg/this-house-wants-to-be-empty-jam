@@ -5,7 +5,7 @@ extends Node2D
 
 var guest = null
 
-var target = null
+var elevator = null
 
 
 func initialize():
@@ -15,14 +15,15 @@ func initialize():
 	var guest_interactables = main.get_children_in_group(world, 'guest_interactable')
 
 	for interactable in guest_interactables:
-		if interactable.get_parent().is_in_group('reception'):
-			target = interactable.get_parent()
+		if interactable.get_parent().is_in_group('elevator'):
+			elevator = interactable.get_parent()
 
 func process_behaviour(delta):
-	guest.move_guest_toward(target, delta)
+	guest.move_guest_toward(elevator, delta)
 
-	if guest.global_position.distance_to(target.global_position) < 1.0:
-		guest.insert_task(0,'discuss_stay')
+	if abs(guest.global_position.x - elevator.global_position.x) < 1.0:
+		guest.insert_task(0, 'wait_for_elevator')
+		# print('2')
 
 		queue_free()
 		 

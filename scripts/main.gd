@@ -42,3 +42,12 @@ func _get_children_in_group_recursive(node, group):
 
 		_get_children_in_group_recursive(child, group)
 
+func find_in_parents(node, group):
+	while node != self:
+		node = node.get_parent()
+		if node.is_in_group(group):
+			return node
+		
+	return node
+
+

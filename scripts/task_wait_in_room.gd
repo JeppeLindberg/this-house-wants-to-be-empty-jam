@@ -24,4 +24,4 @@ func process_behaviour(_delta):
 		guest.insert_task(0,'go_to_entrance')
 
 		queue_free()
-		guest.start_next_task()
+		 

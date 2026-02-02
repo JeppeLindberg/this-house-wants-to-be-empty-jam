@@ -4,6 +4,8 @@ extends Node2D
 @export var discuss_stay: PackedScene
 @export var go_to_room: PackedScene
 @export var wait_in_room: PackedScene
+@export var go_to_elevator: PackedScene
+@export var wait_for_elevator: PackedScene
 
 func get_task_prefab(task_name) -> PackedScene:
 	if task_name == 'go_to_reception':
@@ -14,6 +16,10 @@ func get_task_prefab(task_name) -> PackedScene:
 		return go_to_room
 	if task_name == 'wait_in_room':
 		return wait_in_room
+	if task_name == 'go_to_elevator':
+		return go_to_elevator
+	if task_name == 'wait_for_elevator':
+		return wait_for_elevator
 
 	return null
 
