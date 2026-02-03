@@ -10,7 +10,6 @@ var elevator = null
 
 
 func initialize():
-	# print('1')
 	main = get_node('/root/main')
 	world = get_node('/root/main/world')
 	guest = get_parent().get_parent()
@@ -24,9 +23,5 @@ func initialize():
 
 func process_behaviour(_delta):
 	if guest.global_position.distance_to(elevator.global_position) < 1.0:
-		guest.move_to(elevator)
-
-		guest.insert_task(0, 'wait_in_elevator')
-
 		queue_free()
 		 

@@ -21,6 +21,7 @@ func call_to_floor(floor_number):
 	floor_queue.append(floor_number)
 
 func _process(delta: float) -> void:
+	print(floor_queue)
 	lifetime += delta
 
 	if lifetime < wait_until:
@@ -37,3 +38,9 @@ func _process(delta: float) -> void:
 
 func move_to(floor_node):
 	self.reparent(floor_node)
+
+func current_floor():
+	if get_parent() == floor_1:
+		return 1
+	if get_parent() == floor_2:
+		return 2

@@ -18,10 +18,11 @@ func initialize():
 	done_wait_in_room = guest.lifetime + WAIT_IN_ROOM_DURATION
 
 func process_behaviour(_delta):
-	if guest.lifetime > done_wait_in_room:
-		guest.room_number = 1
+	pass
+	# if guest.lifetime > done_wait_in_room:
+	# 	guest.room_number = 1
 
-		guest.insert_task(0,'go_to_entrance')
+	# 	guest.insert_task(0,'go_to_entrance')
 
-		queue_free()
+	# 	queue_free()
 		 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=24 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ctyrslrmwbt1n" path="res://prefabs/guest_tasks/go_to_elevator.tscn" id="7_jbj1t"]
 [ext_resource type="Script" uid="uid://w6dymuou1ya0" path="res://scripts/floor.gd" id="8_jkv2x"]
 [ext_resource type="PackedScene" uid="uid://cm81kilwvacc7" path="res://prefabs/guest_tasks/wait_for_elevator.tscn" id="8_muem4"]
+[ext_resource type="PackedScene" uid="uid://f3holch1xk34" path="res://prefabs/guest_tasks/wait_in_elevator.tscn" id="9_0ld40"]
 [ext_resource type="Script" uid="uid://n1vloh3qcmi4" path="res://scripts/floor_mgt.gd" id="9_muem4"]
 [ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="10_trceg"]
 
@@ -42,6 +43,7 @@ go_to_room = ExtResource("5_ya4ey")
 wait_in_room = ExtResource("6_eb6dy")
 go_to_elevator = ExtResource("7_jbj1t")
 wait_for_elevator = ExtResource("8_muem4")
+wait_in_elevator = ExtResource("9_0ld40")
 
 [node name="room_mgt" type="Node2D" parent="."]
 script = ExtResource("7_a8y0u")

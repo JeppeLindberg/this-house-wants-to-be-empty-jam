@@ -5,6 +5,7 @@ extends Node2D
 
 var guest = null
 
+var target_floor = 0
 var elevator = null
 
 
@@ -17,10 +18,10 @@ func initialize():
 	for interactable in guest_interactables:
 		if interactable.get_parent().is_in_group('elevator'):
 			elevator = interactable.get_parent()
+		
+	elevator.call_to_floor(target_floor)
 
-func process_behaviour(delta):
-	guest.move_guest_toward(elevator, delta)
-
-	if abs(guest.global_position.x - elevator.global_position.x) < 1.0:		
+func process_behaviour(_delta):
+	if elevator.current_floor() == target_floor:
 		queue_free()
 		 

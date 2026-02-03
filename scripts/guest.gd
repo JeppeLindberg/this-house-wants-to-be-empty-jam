@@ -30,7 +30,7 @@ func _process(delta: float) -> void:
 
 	lifetime += delta
 
-	if current_task == null:
+	if (current_task == null) or (current_task.is_queued_for_deletion()):
 		for task in tasks.get_children():
 			if task.is_queued_for_deletion():
 				continue
@@ -53,6 +53,8 @@ func insert_task(index, task_name):
 
 	if index == 0:
 		current_task = null
+
+	return new_task
 
 func move_guest_toward(node, delta):
 	global_position.x = move_toward(global_position.x, node.global_position.x, MOVE_SPEED * delta)

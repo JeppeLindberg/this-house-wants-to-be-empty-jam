@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://f3holch1xk34"]
+
+[ext_resource type="Script" uid="uid://cyycln1g0xpog" path="res://scripts/task_wait_in_elevator.gd" id="1_10wuc"]
+
+[node name="wait_in_elevator" type="Node2D"]
+script = ExtResource("1_10wuc")
