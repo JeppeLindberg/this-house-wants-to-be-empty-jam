@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxjtphs6bqbam"]
+
+[ext_resource type="Script" uid="uid://ks6wlfd3o7rt" path="res://scripts/event.gd" id="1_80acc"]
+[ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="2_nxn3i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jscy8"]
+radius = 49.0
+
+[node name="event" type="Area2D"]
+script = ExtResource("1_80acc")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jscy8")
+
+[node name="visual" type="Node2D" parent="."]
+z_index = 475
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+texture = ExtResource("2_nxn3i")
+
+[node name="sprite2" type="Sprite2D" parent="visual"]
+self_modulate = Color(0.9591598, 0.69328016, 0.8189163, 1)
+scale = Vector2(0.81174326, 0.81174326)
+texture = ExtResource("2_nxn3i")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

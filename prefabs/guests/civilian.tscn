@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://cy422lrw8sl58"]
+
+[ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="1_by2ye"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="2_e5m60"]
+[ext_resource type="Script" uid="uid://bo5fjkfxtm0ti" path="res://scripts/event_scripts/civilian_discuss_stay.gd" id="2_ms0yu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trceg"]
+radius = 6.0827627
+
+[node name="civilian" type="Node2D"]
+script = ExtResource("1_by2ye")
+
+[node name="room_detector" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_trceg")
+
+[node name="tasks" type="Node2D" parent="."]
+
+[node name="event_scripts" type="Node2D" parent="."]
+
+[node name="civilian_discuss_stay" type="Node2D" parent="event_scripts"]
+script = ExtResource("2_ms0yu")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+self_modulate = Color(0.49019608, 0.50980395, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_e5m60")

@@ -7,6 +7,8 @@ extends Node2D
 @export var go_to_elevator: PackedScene
 @export var wait_for_elevator: PackedScene
 @export var wait_in_elevator: PackedScene
+@export var hesitate: PackedScene
+@export var wait_for_event_finished: PackedScene
 
 func get_task_prefab(task_name) -> PackedScene:
 	if task_name == 'go_to_reception':
@@ -23,6 +25,10 @@ func get_task_prefab(task_name) -> PackedScene:
 		return wait_for_elevator
 	if task_name == 'wait_in_elevator':
 		return wait_in_elevator
+	if task_name == 'hesitate':
+		return hesitate
+	if task_name == 'wait_for_event_finished':
+		return wait_for_event_finished
 
 	return null
 

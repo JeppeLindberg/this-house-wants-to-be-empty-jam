@@ -14,9 +14,12 @@ Lavede github repo
 
 Kan også bevæge sig til elevator nu, og kalde på den
 
+# 26-02-03
+
+Der findes nu en task der fører en gæst fra lobbyen til deres værelse, og finder på del-tasks undervejs
+
 # To do
 
-Lav en task der lader gæster gå fra receptionen til deres rum, og finder deres tasks undervejs.
+Lav event system
 
-Flyt funktionaliteten af alle del-tasks ind i go_to_room
-
+Opret receptionssystem, med en kø af nye indlejrere

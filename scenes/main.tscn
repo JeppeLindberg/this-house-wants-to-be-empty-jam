@@ -1,9 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=27 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
 [ext_resource type="Script" uid="uid://cyclrs00p5x47" path="res://scripts/main.gd" id="1_tbgi4"]
-[ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://bmn5afbeduq34" path="res://scripts/event_mgt.gd" id="2_jscy8"]
 [ext_resource type="Script" uid="uid://bx27pp5t70upq" path="res://scripts/elevator.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dsqcyyjt3hacl" path="res://prefabs/guest_interactable.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://b5b2afdujt3om" path="res://scripts/entrance.gd" id="2_tefeu"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://f3holch1xk34" path="res://prefabs/guest_tasks/wait_in_elevator.tscn" id="9_0ld40"]
 [ext_resource type="Script" uid="uid://n1vloh3qcmi4" path="res://scripts/floor_mgt.gd" id="9_muem4"]
 [ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="10_trceg"]
+[ext_resource type="PackedScene" uid="uid://blayfjgy8vr41" path="res://prefabs/guest_tasks/hesitate.tscn" id="10_yc10j"]
+[ext_resource type="PackedScene" uid="uid://dxjtphs6bqbam" path="res://prefabs/event.tscn" id="12_gqmmt"]
+[ext_resource type="PackedScene" uid="uid://dyijearirnba0" path="res://prefabs/guest_tasks/wait_for_event_finished.tscn" id="13_pm3ni"]
+[ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(236, 221)
@@ -29,11 +33,12 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
 size = Vector2(431, 223)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_trceg"]
-radius = 6.0827627
-
 [node name="main" type="Node2D"]
 script = ExtResource("1_tbgi4")
+
+[node name="event_mgt" type="Node2D" parent="."]
+script = ExtResource("2_jscy8")
+event_prefab = ExtResource("12_gqmmt")
 
 [node name="guest_mgt" type="Node2D" parent="."]
 script = ExtResource("2_tipki")
@@ -44,12 +49,16 @@ wait_in_room = ExtResource("6_eb6dy")
 go_to_elevator = ExtResource("7_jbj1t")
 wait_for_elevator = ExtResource("8_muem4")
 wait_in_elevator = ExtResource("9_0ld40")
+hesitate = ExtResource("10_yc10j")
+wait_for_event_finished = ExtResource("13_pm3ni")
 
 [node name="room_mgt" type="Node2D" parent="."]
 script = ExtResource("7_a8y0u")
 
 [node name="floor_mgt" type="Node2D" parent="."]
 script = ExtResource("9_muem4")
+
+[node name="events" type="Node2D" parent="."]
 
 [node name="world" type="Node2D" parent="."]
 
@@ -166,21 +175,8 @@ text = "RECEPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="guest" type="Node2D" parent="world/floor_1"]
+[node name="civilian" parent="world/floor_1" instance=ExtResource("22_jscy8")]
 position = Vector2(486, 0)
-script = ExtResource("2_0wfyh")
-
-[node name="room_detector" type="CollisionShape2D" parent="world/floor_1/guest"]
-shape = SubResource("CircleShape2D_trceg")
-
-[node name="tasks" type="Node2D" parent="world/floor_1/guest"]
-
-[node name="visual" type="Node2D" parent="world/floor_1/guest"]
-
-[node name="sprite" type="Sprite2D" parent="world/floor_1/guest/visual"]
-self_modulate = Color(0.49019608, 0.50980395, 1, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_o5qli")
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(133, 0)

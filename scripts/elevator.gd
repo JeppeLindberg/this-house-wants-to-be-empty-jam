@@ -21,7 +21,6 @@ func call_to_floor(floor_number):
 	floor_queue.append(floor_number)
 
 func _process(delta: float) -> void:
-	print(floor_queue)
 	lifetime += delta
 
 	if lifetime < wait_until:
