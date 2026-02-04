@@ -1,6 +1,7 @@
-extends Node2D
+extends Node
 
 
+@onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 
 
@@ -49,5 +50,3 @@ func find_in_parents(node, group):
 			return node
 		
 	return node
-
-

@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')

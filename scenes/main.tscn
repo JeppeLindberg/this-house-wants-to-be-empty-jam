@@ -33,34 +33,17 @@ size = Vector2(100, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
 size = Vector2(431, 223)
 
-[node name="main" type="Node2D"]
+[node name="main" type="Node"]
 script = ExtResource("1_tbgi4")
 
-[node name="event_mgt" type="Node2D" parent="."]
-script = ExtResource("2_jscy8")
-event_prefab = ExtResource("12_gqmmt")
-
-[node name="guest_mgt" type="Node2D" parent="."]
-script = ExtResource("2_tipki")
-go_to_reception = ExtResource("3_85g3d")
-discuss_stay = ExtResource("4_choun")
-go_to_room = ExtResource("5_ya4ey")
-wait_in_room = ExtResource("6_eb6dy")
-go_to_elevator = ExtResource("7_jbj1t")
-wait_for_elevator = ExtResource("8_muem4")
-wait_in_elevator = ExtResource("9_0ld40")
-hesitate = ExtResource("10_yc10j")
-wait_for_event_finished = ExtResource("13_pm3ni")
-
-[node name="room_mgt" type="Node2D" parent="."]
-script = ExtResource("7_a8y0u")
-
-[node name="floor_mgt" type="Node2D" parent="."]
-script = ExtResource("9_muem4")
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(126, -2)
 
 [node name="events" type="Node2D" parent="."]
+position = Vector2(-7, -2)
 
 [node name="world" type="Node2D" parent="."]
+position = Vector2(-7, -2)
 
 [node name="floor_2" type="Node2D" parent="world"]
 position = Vector2(0, -253)
@@ -178,5 +161,64 @@ vertical_alignment = 1
 [node name="civilian" parent="world/floor_1" instance=ExtResource("22_jscy8")]
 position = Vector2(486, 0)
 
-[node name="camera" type="Camera2D" parent="."]
-position = Vector2(133, 0)
+[node name="event_feed" type="Node2D" parent="."]
+
+[node name="column" type="Node2D" parent="event_feed"]
+position = Vector2(-220, 0)
+
+[node name="sprite" type="Sprite2D" parent="event_feed/column"]
+self_modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
+scale = Vector2(3.1435719, 7.831519)
+texture = ExtResource("1_o5qli")
+
+[node name="text" type="RichTextLabel" parent="event_feed/column"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -271.0
+offset_right = 121.0
+offset_bottom = 291.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+Text
+"
+
+[node name="event_mgt" type="Node" parent="."]
+script = ExtResource("2_jscy8")
+event_prefab = ExtResource("12_gqmmt")
+
+[node name="guest_mgt" type="Node" parent="."]
+script = ExtResource("2_tipki")
+go_to_reception = ExtResource("3_85g3d")
+discuss_stay = ExtResource("4_choun")
+go_to_room = ExtResource("5_ya4ey")
+wait_in_room = ExtResource("6_eb6dy")
+go_to_elevator = ExtResource("7_jbj1t")
+wait_for_elevator = ExtResource("8_muem4")
+wait_in_elevator = ExtResource("9_0ld40")
+hesitate = ExtResource("10_yc10j")
+wait_for_event_finished = ExtResource("13_pm3ni")
+
+[node name="room_mgt" type="Node" parent="."]
+script = ExtResource("7_a8y0u")
+
+[node name="floor_mgt" type="Node" parent="."]
+script = ExtResource("9_muem4")

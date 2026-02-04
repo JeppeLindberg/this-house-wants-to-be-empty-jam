@@ -1,5 +1,6 @@
-extends Node2D
+extends Node
 
+@onready var main = get_node('/root/main')
 @onready var events = get_node('/root/main/events')
 
 @export var event_prefab: PackedScene

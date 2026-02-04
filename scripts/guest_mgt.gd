@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @export var go_to_reception: PackedScene
 @export var discuss_stay: PackedScene
