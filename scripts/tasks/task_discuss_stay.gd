@@ -5,6 +5,7 @@ extends Node2D
 
 const DISCUSS_STAY_SECS = 3.0
 
+var task_name = null
 var guest = null
 
 var done_discussing_stay = 0.0

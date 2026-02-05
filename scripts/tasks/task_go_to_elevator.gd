@@ -3,6 +3,7 @@ extends Node2D
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 
+var task_name = null
 var guest = null
 
 var elevator = null
@@ -18,8 +19,8 @@ func initialize():
 		if interactable.is_in_group('elevator'):
 			elevator = interactable
 
-func process_behaviour(delta):
-	guest.move_guest_toward(elevator, delta)
+func process_behaviour(_delta):
+	guest.move_guest_toward(elevator)
 
 	if abs(guest.global_position.x - elevator.global_position.x) < 1.0:		
 		queue_free()

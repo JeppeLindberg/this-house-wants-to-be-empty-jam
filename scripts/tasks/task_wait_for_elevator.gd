@@ -4,6 +4,7 @@ extends Node2D
 @onready var world = get_node('/root/main/world')
 @onready var room_mgt = get_node('/root/main/room_mgt')
 
+var task_name = null
 var guest = null
 
 var elevator = null

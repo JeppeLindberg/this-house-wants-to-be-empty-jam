@@ -16,6 +16,7 @@ func begin_script(event_script, event_source):
 	current_script = event_script
 	current_event = event_source
 	clear()
+	current_script.trigger_start()
 	go_to('0')
 
 func go_to(denoter):
@@ -52,7 +53,7 @@ func add_button(new_button_dict):
 	if new_button_dict.get('finish') == true:
 		new_button.pressed.connect(func(): 
 			clear()
-			current_script.trigger_finished()
+			current_script.trigger_end()
 			current_event.queue_free()
 		)
 

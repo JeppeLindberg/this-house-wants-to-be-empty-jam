@@ -1,16 +1,16 @@
-extends Node2D
+extends Area2D
 
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 @onready var tasks = get_node('tasks')
 @onready var guest_mgt = get_node('/root/main/guest_mgt')
-@onready var room_detector = get_node('room_detector')
 @onready var event_mgt = get_node('/root/main/event_mgt')
 @onready var event_scripts = get_node('event_scripts')
+@onready var room_detector = get_node('room_detector')
+@onready var movement = get_node('movement')
 
 var discuss_stay_event_script: Node2D
 
-const MOVE_SPEED = 100.0
 const DISCUSS_STAY_SECS = 3.0
 const HESITATE_DURATION_SECS = 1.0
 
@@ -22,6 +22,7 @@ var room_number = -1
 var lifetime = 0.0
 var done_discussing_stay = 0.0
 
+var state = ''
 var attributes = []
 
 
@@ -68,7 +69,7 @@ func _assign_new_task():
 		return
 
 	var hesitate = append_task('hesitate')
-	hesitate.duration = HESITATE_DURATION_SECS
+	hesitate.duration = HESITATE_DURATION_SECS * randf_range(0.5, 1.5)
 	if not attributes.has('assigned_room') and not attributes.has('declined_a_room'):
 		var go_to_reception = append_task('go_to_reception')
 		go_to_reception.event_script = discuss_stay_event_script
@@ -91,6 +92,7 @@ func insert_task(index, task_name):
 		return
 
 	var new_task = new_task_prefab.instantiate()
+	new_task.task_name = task_name
 	tasks.add_child(new_task)
 	tasks.move_child(new_task, index)
 
@@ -99,8 +101,37 @@ func insert_task(index, task_name):
 
 	return new_task
 
-func move_guest_toward(node, delta):
-	global_position.x = move_toward(global_position.x, node.global_position.x, MOVE_SPEED * delta)
+func clear_tasks():
+	for task in tasks.get_children():
+		task.queue_free()
+	set_state('')
+
+func set_state(new_state):
+	state = new_state
+
+func move_guest_toward(node, queue_behind_nodes_with_tasks = [], queue_behind_nodes_in_state = []):	
+	movement.move_toward(node, queue_behind_nodes_with_tasks, queue_behind_nodes_in_state)
+
+	if movement.target_movement == 'none':
+		clear_tasks()
+		set_state('standing_in_queue')
+
+func get_current_task_name():
+	if (current_task == null) or (current_task.is_queued_for_deletion()):
+		return null
+	return current_task.task_name
+
+func get_current_state():
+	if state != '':
+		return state
+	if movement.target_movement == 'left':
+		return 'moving_left'
+	if movement.target_movement == 'right':
+		return 'moving_right'
+
+	return 'idle'
+
+		
 
 func move_to(room_node):
 	self.reparent(room_node)

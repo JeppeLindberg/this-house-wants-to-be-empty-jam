@@ -4,6 +4,7 @@ extends Node2D
 @onready var world = get_node('/root/main/world')
 @onready var event_mgt = get_node('/root/main/event_mgt')
 
+var task_name = null
 var guest = null
 
 var target = null
@@ -20,8 +21,8 @@ func initialize():
 		if interactable.is_in_group('reception'):
 			target = interactable
 
-func process_behaviour(delta):
-	guest.move_guest_toward(target, delta)
+func process_behaviour(_delta):
+	guest.move_guest_toward(target, ['go_to_reception'], ['talking_to_reception', 'standing_in_queue'])
 	
 	if guest.global_position.distance_to(target.global_position) < 1.0:
 		if event_script != null:

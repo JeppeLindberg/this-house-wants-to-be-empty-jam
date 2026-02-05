@@ -30,6 +30,8 @@ Udvidede event system med rullende tekst, samt knapper som brugeren kan bruge ti
 
 Gæster kan nu få fordelt 1 af 3 rum
 
+Gæster kan nu stille sig i kø, og venter på deres tur til at blive indlogeret
+
 # To do
 
 

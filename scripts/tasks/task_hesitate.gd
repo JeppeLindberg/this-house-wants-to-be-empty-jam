@@ -3,6 +3,7 @@ extends Node2D
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 
+var task_name = null
 var guest = null
 
 var duration = 1.0

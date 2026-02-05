@@ -11,5 +11,6 @@ func spawn_event(event_script, source_node):
 	events.add_child(event)
 	event.global_position = source_node.global_position
 	event.event_script = event_script
+	event_script.trigger_event_spawned()
 	return event
 	

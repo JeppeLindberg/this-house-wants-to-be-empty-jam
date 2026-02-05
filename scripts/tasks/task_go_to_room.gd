@@ -4,6 +4,7 @@ extends Node2D
 @onready var world = get_node('/root/main/world')
 @onready var room_mgt = get_node('/root/main/room_mgt')
 
+var task_name = null
 var guest = null
 
 var guest_interactable
@@ -27,7 +28,7 @@ func initialize():
 			room_door = interactable
 
 
-func process_behaviour(delta):
+func process_behaviour(_delta):
 	if guest.global_position.distance_to(elevator.global_position) < 1.0 and room_mgt.get_floor(guest) != room_mgt.get_floor(room):
 		var new_task = guest.insert_task(0, 'wait_in_elevator')
 		new_task.target_floor = room_mgt.get_floor(room).number
@@ -41,7 +42,7 @@ func process_behaviour(delta):
 		guest.insert_task(0, 'go_to_elevator')
 		return
 
-	guest.move_guest_toward(room_door, delta)
+	guest.move_guest_toward(room_door)
 
 	if guest.global_position.distance_to(room_door.global_position) < 1.0:
 		guest.reparent(room)

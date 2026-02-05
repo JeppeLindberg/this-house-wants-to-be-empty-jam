@@ -3,9 +3,10 @@ extends Node2D
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 
-const WAIT_IN_ROOM_DURATION = 30.0
-
+var task_name = null
 var guest = null
+
+const WAIT_IN_ROOM_DURATION = 30.0
 
 var done_wait_in_room = 0.0
 

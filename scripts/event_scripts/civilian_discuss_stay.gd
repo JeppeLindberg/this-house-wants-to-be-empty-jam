@@ -59,8 +59,14 @@ func _ready() -> void:
 	
 	guest = main.find_in_parents(self, 'guest')
 
-func trigger_finished():
+func trigger_event_spawned():
+	guest.set_state('talking_to_reception')
+
+func trigger_start():
 	pass
+
+func trigger_end():
+	guest.clear_tasks()
 
 func assign_room_to_guest():
 	var assigned_room = room_mgt.assign_random_room()
