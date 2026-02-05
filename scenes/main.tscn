@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=30 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -19,7 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://f3holch1xk34" path="res://prefabs/guest_tasks/wait_in_elevator.tscn" id="9_0ld40"]
 [ext_resource type="Script" uid="uid://n1vloh3qcmi4" path="res://scripts/floor_mgt.gd" id="9_muem4"]
 [ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="10_trceg"]
+[ext_resource type="Script" uid="uid://ctr5h0etfm8cx" path="res://scripts/event_feed.gd" id="10_y6deb"]
 [ext_resource type="PackedScene" uid="uid://blayfjgy8vr41" path="res://prefabs/guest_tasks/hesitate.tscn" id="10_yc10j"]
+[ext_resource type="PackedScene" uid="uid://bystq3vk3iwi2" path="res://prefabs/event_feed_text.tscn" id="11_og1vs"]
+[ext_resource type="PackedScene" uid="uid://b32fxa1n28wyu" path="res://prefabs/event_feed_button.tscn" id="12_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://dxjtphs6bqbam" path="res://prefabs/event.tscn" id="12_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dyijearirnba0" path="res://prefabs/guest_tasks/wait_for_event_finished.tscn" id="13_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
@@ -161,7 +164,12 @@ vertical_alignment = 1
 [node name="civilian" parent="world/floor_1" instance=ExtResource("22_jscy8")]
 position = Vector2(486, 0)
 
-[node name="event_feed" type="Node2D" parent="."]
+[node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]
+z_index = 2055
+script = ExtResource("10_y6deb")
+feed_container = NodePath("column/panel/feed_container")
+event_feed_text_prefab = ExtResource("11_og1vs")
+event_feed_button_prefab = ExtResource("12_2wyq8")
 
 [node name="column" type="Node2D" parent="event_feed"]
 position = Vector2(-220, 0)
@@ -171,35 +179,28 @@ self_modulate = Color(0.07683582, 0.07683582, 0.07683582, 1)
 scale = Vector2(3.1435719, 7.831519)
 texture = ExtResource("1_o5qli")
 
-[node name="text" type="RichTextLabel" parent="event_feed/column"]
+[node name="panel" type="Panel" parent="event_feed/column"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -118.0
-offset_top = -271.0
-offset_right = 121.0
-offset_bottom = 291.0
+offset_left = -125.0
+offset_top = -300.0
+offset_right = 125.0
+offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
-bbcode_enabled = true
-text = "Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-Text
-"
+
+[node name="feed_container" type="VBoxContainer" parent="event_feed/column/panel"]
+custom_minimum_size = Vector2(250, 600)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="event_mgt" type="Node" parent="."]
 script = ExtResource("2_jscy8")

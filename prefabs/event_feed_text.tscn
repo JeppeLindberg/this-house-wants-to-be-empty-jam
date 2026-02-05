@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bystq3vk3iwi2"]
+
+[node name="event_feed_text" type="RichTextLabel"]
+bbcode_enabled = true
+text = "hello hello hello hello hello hello hello hello "
+fit_content = true

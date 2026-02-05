@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b32fxa1n28wyu"]
+
+[node name="event_feed_button" type="Button"]
+modulate = Color(0.5294118, 1, 1, 1)
+text = "continue"
+flat = true

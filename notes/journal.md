@@ -22,6 +22,8 @@ Der findes nu en task der fører en gæst fra lobbyen til deres værelse, og fin
 
 Lavede grundlaget for at events kan blive triggered, samt valgt af spilleren
 
+Lavede grundlaget for event rullene tekst
+
 # To do
 
 Lav event system

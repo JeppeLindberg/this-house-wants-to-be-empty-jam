@@ -2,10 +2,27 @@ extends Node2D
 
 @onready var main = get_node('/root/main')
 
-var manuscript = [
-	'hello',
-	'how are you'
-]
+var manuscript = {
+	'0': {
+		'text': 'hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello',
+		'buttons': [
+			{
+				'text': 'continue',
+				'command': 'go_to',
+				'param_1': '1'
+			}
+		]
+	},
+	'1': {
+		'text': 'hello hello hello hello hello hello hello hello hello hello hello',
+		'buttons': [
+			{
+				'text': 'continue',
+				'command': 'finish_event'
+			}
+		]
+	},
+}
 
 
 func _ready() -> void:
