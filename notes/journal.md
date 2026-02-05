@@ -28,6 +28,8 @@ Lavede grundlaget for event rullene tekst
 
 Udvidede event system med rullende tekst, samt knapper som brugeren kan bruge til at lave valg
 
+Gæster kan nu få fordelt 1 af 3 rum
+
 # To do
 
 

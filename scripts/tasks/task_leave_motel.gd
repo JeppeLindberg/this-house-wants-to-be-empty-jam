@@ -16,8 +16,8 @@ func initialize():
 	var guest_interactables = main.get_children_in_group(world, 'guest_interactable')
 
 	for interactable in guest_interactables:
-		if interactable.get_parent().is_in_group('entrance'):
-			target = interactable.get_parent()
+		if interactable.is_in_group('entrance'):
+			target = interactable
 
 func process_behaviour(delta):
 	guest.move_guest_toward(target, delta)

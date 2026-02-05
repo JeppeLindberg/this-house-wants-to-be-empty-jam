@@ -16,8 +16,8 @@ func initialize():
 	var guest_interactables = main.get_children_in_group(world, 'guest_interactable')
 
 	for interactable in guest_interactables:
-		if interactable.get_parent().is_in_group('elevator'):
-			elevator = interactable.get_parent()
+		if interactable.is_in_group('elevator'):
+			elevator = interactable
 		
 	elevator.call_to_floor(target_floor)
 

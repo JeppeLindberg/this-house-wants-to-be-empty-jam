@@ -21,15 +21,14 @@ func initialize():
 	print(room)
 
 	for interactable in main.get_children_in_group(world, 'guest_interactable'):
-		if interactable.get_parent().is_in_group('elevator'):
-			elevator = interactable.get_parent()
-		if interactable.get_parent().get_parent() == room:
+		if interactable.is_in_group('elevator'):
+			elevator = interactable
+		if interactable.get_parent() == room:
 			room_door = interactable
 
 
 func process_behaviour(delta):
 	if guest.global_position.distance_to(elevator.global_position) < 1.0 and room_mgt.get_floor(guest) != room_mgt.get_floor(room):
-		guest.move_to(elevator)
 		var new_task = guest.insert_task(0, 'wait_in_elevator')
 		new_task.target_floor = room_mgt.get_floor(room).number
 		return
