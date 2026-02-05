@@ -22,6 +22,9 @@ var room_number = -1
 var lifetime = 0.0
 var done_discussing_stay = 0.0
 
+var attributes = []
+
+
 
 func _ready() -> void:
 	add_to_group('guest')
@@ -31,11 +34,18 @@ func _ready() -> void:
 			discuss_stay_event_script = child
 
 func _process(delta: float) -> void:
-	var nodes = main.get_nodes_in_shape(room_detector)
-	for node in nodes:
-		if node.is_in_group('room'):
-			current_room = node
-			break;
+	current_room = null
+
+	current_room = main.find_in_parents(self, 'room')
+
+	if current_room == null:
+		var nodes = main.get_nodes_in_shape(room_detector)
+		for node in nodes:
+			if node.is_in_group('lobby'):
+				current_room = node
+				break;
+
+	print(current_room)
 
 	lifetime += delta
 
@@ -62,12 +72,15 @@ func _assign_new_task():
 
 	var hesitate = append_task('hesitate')
 	hesitate.duration = HESITATE_DURATION_SECS
-	if room_number == -1:
+	if not attributes.has('assigned_room') and not attributes.has('declined_a_room'):
 		var go_to_reception = append_task('go_to_reception')
 		go_to_reception.event_script = discuss_stay_event_script
 		return
-	if room_number != -1:
+	if attributes.has('assigned_room'):
 		append_task('go_to_room')
+		return
+	if attributes.has('declined_a_room'):
+		append_task('leave_motel')
 		return
 
 func append_task(task_name):

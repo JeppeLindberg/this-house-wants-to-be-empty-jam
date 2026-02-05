@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ctyrslrmwbt1n"]
 
-[ext_resource type="Script" uid="uid://dtf4q56e77vtg" path="res://scripts/task_go_to_elevator.gd" id="1_idl54"]
+[ext_resource type="Script" uid="uid://dtf4q56e77vtg" path="res://scripts/tasks/task_go_to_elevator.gd" id="1_idl54"]
 
 [node name="go_to_elevator" type="Node2D"]
 script = ExtResource("1_idl54")

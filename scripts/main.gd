@@ -49,4 +49,4 @@ func find_in_parents(node, group):
 		if node.is_in_group(group):
 			return node
 		
-	return node
+	return null

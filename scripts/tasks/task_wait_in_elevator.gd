@@ -23,5 +23,6 @@ func initialize():
 
 func process_behaviour(_delta):
 	if elevator.current_floor() == target_floor:
+		guest.reparent(elevator.get_parent())
 		queue_free()
 		 

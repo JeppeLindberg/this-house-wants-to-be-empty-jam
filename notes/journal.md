@@ -24,10 +24,15 @@ Lavede grundlaget for at events kan blive triggered, samt valgt af spilleren
 
 Lavede grundlaget for event rullene tekst
 
+# 26-02-05
+
+Udvidede event system med rullende tekst, samt knapper som brugeren kan bruge til at lave valg
+
 # To do
 
-Lav event system
-* Når man klikker på et event skal man kunne se en scrolling text feed, a la twitter
-* I bunden skal der være nogle muligheder for hvad man kan svare som bruger (indtil videre bare "tillad" eller "afvis")
 
 Opret receptionssystem, med en kø af nye indlejrere
+
+Opret tids-system, med et ur der tæller dage og uger
+
+Opret hjælper system, med terminaler som hjælpere kan bruge til at gøre deres ting

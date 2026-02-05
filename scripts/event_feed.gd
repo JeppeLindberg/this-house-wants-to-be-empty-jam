@@ -9,6 +9,9 @@ var current_event = null
 
 
 
+func _process(_delta: float) -> void:
+	visible = feed_container.get_child_count() != 0
+
 func begin_script(event_script, event_source):
 	current_script = event_script
 	current_event = event_source
@@ -39,10 +42,18 @@ func add_button(new_button_dict):
 	match new_button_dict['command']:
 		'go_to':
 			new_button.pressed.connect(func(): go_to(new_button_dict['param_1']))
+		'assign_room_to_guest':
+			new_button.pressed.connect(func(): current_script.assign_room_to_guest())
+		'decline_guest':
+			new_button.pressed.connect(func(): current_script.decline_guest())
 		'finish_event':
-			new_button.pressed.connect(func(): 
-				clear()
-				current_script.trigger_finished()
-				current_event.queue_free()
-			)
+			new_button_dict['finish'] = true
+
+	if new_button_dict.get('finish') == true:
+		new_button.pressed.connect(func(): 
+			clear()
+			current_script.trigger_finished()
+			current_event.queue_free()
+		)
+
 	feed_container.add_child(new_button)

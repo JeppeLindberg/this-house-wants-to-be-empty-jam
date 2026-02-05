@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsfthsdopw7rv"]
+
+[ext_resource type="Script" uid="uid://d3ag1fmlbu8yk" path="res://scripts/tasks/task_leave_motel.gd" id="1_rcoma"]
+
+[node name="leave_motel" type="Node2D"]
+script = ExtResource("1_rcoma")

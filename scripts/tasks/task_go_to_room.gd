@@ -8,6 +8,7 @@ var guest = null
 
 var guest_interactable
 var elevator = null
+var room_door = null
 var room = null
 
 
@@ -15,13 +16,16 @@ func initialize():
 	main = get_node('/root/main')
 	world = get_node('/root/main/world')
 	guest = get_parent().get_parent()
-	var guest_interactables = main.get_children_in_group(world, 'guest_interactable')
-
-	for interactable in guest_interactables:
-		if interactable.get_parent().is_in_group('elevator'):
-			elevator = interactable.get_parent()
 
 	room = room_mgt.get_room_node(guest.room_number)
+	print(room)
+
+	for interactable in main.get_children_in_group(world, 'guest_interactable'):
+		if interactable.get_parent().is_in_group('elevator'):
+			elevator = interactable.get_parent()
+		if interactable.get_parent().get_parent() == room:
+			room_door = interactable.get_parent().get_parent()
+
 
 func process_behaviour(delta):
 	if guest.global_position.distance_to(elevator.global_position) < 1.0 and room_mgt.get_floor(guest) != room_mgt.get_floor(room):
@@ -38,11 +42,10 @@ func process_behaviour(delta):
 		guest.insert_task(0, 'go_to_elevator')
 		return
 
-	if room_mgt.get_floor(guest) == room_mgt.get_floor(room):
-		guest.move_guest_toward(room, delta)
+	guest.move_guest_toward(room_door, delta)
 
-		if guest.global_position.distance_to(room.global_position) < 1.0:
-			guest.insert_task(0, 'wait_in_room')
-
-			queue_free()
+	if guest.global_position.distance_to(room_door.global_position) < 1.0:
+		guest.reparent(room)
+		guest.insert_task(0, 'wait_in_room')
+		queue_free()
 		 
