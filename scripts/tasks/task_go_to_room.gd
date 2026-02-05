@@ -24,7 +24,7 @@ func initialize():
 		if interactable.get_parent().is_in_group('elevator'):
 			elevator = interactable.get_parent()
 		if interactable.get_parent().get_parent() == room:
-			room_door = interactable.get_parent().get_parent()
+			room_door = interactable
 
 
 func process_behaviour(delta):

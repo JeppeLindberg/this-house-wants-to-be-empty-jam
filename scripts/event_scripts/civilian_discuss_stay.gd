@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var main = get_node('/root/main')
+@onready var room_mgt = get_node('/root/main/room_mgt')
 
 var guest = null
 
@@ -62,7 +63,8 @@ func trigger_finished():
 	pass
 
 func assign_room_to_guest():
-	guest.room_number = 1
+	var assigned_room = room_mgt.assign_random_room()
+	guest.room_number = assigned_room.number
 	guest.attributes.append('assigned_room')
 
 func decline_guest():

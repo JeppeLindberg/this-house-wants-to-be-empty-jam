@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhe7jcpllmb3t"]
+
+[ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="1_p3u21"]
+[ext_resource type="Script" uid="uid://dgfx82vl2w5b8" path="res://scripts/door.gd" id="2_y72nq"]
+[ext_resource type="PackedScene" uid="uid://dsqcyyjt3hacl" path="res://prefabs/guest_interactable.tscn" id="3_0dyi5"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_gyfg6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(150, 143)
+
+[node name="room" type="Area2D"]
+script = ExtResource("1_p3u21")
+
+[node name="door" type="Node2D" parent="."]
+position = Vector2(40, 0)
+script = ExtResource("2_y72nq")
+
+[node name="guest_interactable" parent="door" instance=ExtResource("3_0dyi5")]
+
+[node name="visual" type="Node2D" parent="door"]
+
+[node name="sprite" type="Sprite2D" parent="door/visual"]
+texture = ExtResource("4_gyfg6")
+
+[node name="center" type="CenterContainer" parent="door/visual"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="door/visual/center"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "DOOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_a8y0u")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.5137255, 1, 0.5372549, 0.5019608)
+z_index = -335
+scale = Vector2(1.5, 1.414)
+texture = ExtResource("4_gyfg6")

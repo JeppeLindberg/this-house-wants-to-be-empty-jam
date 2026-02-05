@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=31 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -18,7 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://cm81kilwvacc7" path="res://prefabs/guest_tasks/wait_for_elevator.tscn" id="8_muem4"]
 [ext_resource type="PackedScene" uid="uid://f3holch1xk34" path="res://prefabs/guest_tasks/wait_in_elevator.tscn" id="9_0ld40"]
 [ext_resource type="Script" uid="uid://n1vloh3qcmi4" path="res://scripts/floor_mgt.gd" id="9_muem4"]
-[ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="10_trceg"]
 [ext_resource type="Script" uid="uid://ctr5h0etfm8cx" path="res://scripts/event_feed.gd" id="10_y6deb"]
 [ext_resource type="PackedScene" uid="uid://blayfjgy8vr41" path="res://prefabs/guest_tasks/hesitate.tscn" id="10_yc10j"]
 [ext_resource type="PackedScene" uid="uid://bystq3vk3iwi2" path="res://prefabs/event_feed_text.tscn" id="11_og1vs"]
@@ -26,12 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://dxjtphs6bqbam" path="res://prefabs/event.tscn" id="12_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dyijearirnba0" path="res://prefabs/guest_tasks/wait_for_event_finished.tscn" id="13_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://bsfthsdopw7rv" path="res://prefabs/guest_tasks/leave_motel.tscn" id="14_vxglm"]
-[ext_resource type="Script" uid="uid://dgfx82vl2w5b8" path="res://scripts/door.gd" id="19_2f3dj"]
+[ext_resource type="PackedScene" uid="uid://bhe7jcpllmb3t" path="res://prefabs/room.tscn" id="18_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
-size = Vector2(150, 143)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(100, 100)
@@ -79,44 +75,17 @@ position = Vector2(0, -253)
 script = ExtResource("8_jkv2x")
 number = 2
 
-[node name="room_1" type="Area2D" parent="world/floor_2"]
+[node name="room_1" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
 position = Vector2(273, 0)
-script = ExtResource("10_trceg")
 number = 1
 
-[node name="door" type="Node2D" parent="world/floor_2/room_1"]
-position = Vector2(40, 0)
-script = ExtResource("19_2f3dj")
+[node name="room_2" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
+position = Vector2(451, 0)
+number = 2
 
-[node name="guest_interactable" parent="world/floor_2/room_1/door" instance=ExtResource("2_tbgi4")]
-
-[node name="visual" type="Node2D" parent="world/floor_2/room_1/door"]
-
-[node name="sprite" type="Sprite2D" parent="world/floor_2/room_1/door/visual"]
-texture = ExtResource("1_o5qli")
-
-[node name="center" type="CenterContainer" parent="world/floor_2/room_1/door/visual"]
-offset_right = 40.0
-offset_bottom = 40.0
-use_top_left = true
-
-[node name="Label" type="Label" parent="world/floor_2/room_1/door/visual/center"]
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 2
-text = "DOOR"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="shape" type="CollisionShape2D" parent="world/floor_2/room_1"]
-position = Vector2(1, 0.5)
-shape = SubResource("RectangleShape2D_a8y0u")
-debug_color = Color(0, 0.6, 0.69803923, 0)
-
-[node name="sprite" type="Sprite2D" parent="world/floor_2/room_1"]
-self_modulate = Color(0.5137255, 1, 0.5372549, 0.5019608)
-z_index = -335
-scale = Vector2(1.5, 1.414)
-texture = ExtResource("1_o5qli")
+[node name="room_3" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
+position = Vector2(625, 0)
+number = 3
 
 [node name="elevator" type="Area2D" parent="world/floor_2" node_paths=PackedStringArray("floor_1", "floor_2")]
 script = ExtResource("2_o6xl0")

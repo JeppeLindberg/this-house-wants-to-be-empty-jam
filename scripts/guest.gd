@@ -34,24 +34,21 @@ func _ready() -> void:
 			discuss_stay_event_script = child
 
 func _process(delta: float) -> void:
+	lifetime += delta
+
+	_detect_current_room()
+	_handle_task(delta)
+	_assign_new_task()
+
+func _detect_current_room():
 	current_room = null
-
 	current_room = main.find_in_parents(self, 'room')
-
 	if current_room == null:
 		var nodes = main.get_nodes_in_shape(room_detector)
 		for node in nodes:
 			if node.is_in_group('lobby'):
 				current_room = node
 				break;
-
-	print(current_room)
-
-	lifetime += delta
-
-	_handle_task(delta)
-
-	_assign_new_task()
 
 func _handle_task(delta):
 	if (current_task == null) or (current_task.is_queued_for_deletion()):

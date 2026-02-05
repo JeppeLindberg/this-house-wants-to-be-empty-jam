@@ -15,7 +15,6 @@ const WAIT_SECONDS = 1.0
 
 func _ready() -> void:
 	add_to_group('elevator')
-	add_to_group('room')
 
 func call_to_floor(floor_number):
 	floor_queue.append(floor_number)
