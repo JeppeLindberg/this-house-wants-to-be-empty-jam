@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cul1m7knfhmoa"]
+
+[ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="1_d8th2"]
+[ext_resource type="Script" uid="uid://bcpv7wtu5qa0s" path="res://scripts/weekday.gd" id="1_yblmj"]
+
+[node name="weekday" type="Node2D"]
+script = ExtResource("1_yblmj")
+past_color = Color(0, 0.22104818, 0.39947262, 1)
+present_color = Color(0.8796333, 0.50297385, 1, 1)
+future_color = Color(0.38686058, 0, 0.08053102, 1)
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+position = Vector2(0, -37.999996)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_d8th2")

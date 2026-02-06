@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://c358xax7pu2rn"]
+
+[ext_resource type="Script" uid="uid://b0uhna102jac1" path="res://scripts/clock.gd" id="1_87rav"]
+[ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="2_16oxw"]
+[ext_resource type="PackedScene" uid="uid://cul1m7knfhmoa" path="res://prefabs/weekday.tscn" id="3_16oxw"]
+
+[node name="clock" type="Node2D" node_paths=PackedStringArray("monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday")]
+script = ExtResource("1_87rav")
+monday = NodePath("monday")
+tuesday = NodePath("tuesday")
+wednesday = NodePath("wednesday")
+thursday = NodePath("thursday")
+friday = NodePath("friday")
+saturday = NodePath("saturday")
+sunday = NodePath("sunday")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+texture = ExtResource("2_16oxw")
+
+[node name="monday" parent="." instance=ExtResource("3_16oxw")]
+
+[node name="tuesday" parent="." instance=ExtResource("3_16oxw")]
+rotation = 0.89709926
+
+[node name="wednesday" parent="." instance=ExtResource("3_16oxw")]
+rotation = 1.7941985
+
+[node name="thursday" parent="." instance=ExtResource("3_16oxw")]
+rotation = 2.693043
+
+[node name="friday" parent="." instance=ExtResource("3_16oxw")]
+rotation = 3.5901423
+
+[node name="saturday" parent="." instance=ExtResource("3_16oxw")]
+rotation = 4.4872417
+
+[node name="sunday" parent="." instance=ExtResource("3_16oxw")]
+rotation = 5.384341

@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://4m33o6cm7w62"]
+
+[ext_resource type="Script" uid="uid://diir47so1boaq" path="res://scripts/next_day_button.gd" id="1_icas4"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="2_iacok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq6so"]
+size = Vector2(118, 50)
+
+[node name="next_day_button" type="Area2D"]
+script = ExtResource("1_icas4")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_yq6so")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+scale = Vector2(1.1812954, 0.5039066)
+texture = ExtResource("2_iacok")
+
+[node name="center" type="CenterContainer" parent="visual"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="visual/center"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "NEXT DAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

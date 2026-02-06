@@ -5,7 +5,6 @@ extends Node
 
 
 func get_floor_node(floor_number):
-	# print('get_floor_node ' + str(floor_number))
 	var floors = main.get_children_in_group(world, 'floor')
 	for _floor in floors:
 		if 'number' in _floor and _floor.number == floor_number:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=34 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://bx27pp5t70upq" path="res://scripts/elevator.gd" id="2_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://dsqcyyjt3hacl" path="res://prefabs/guest_interactable.tscn" id="2_tbgi4"]
 [ext_resource type="Script" uid="uid://b5b2afdujt3om" path="res://scripts/entrance.gd" id="2_tefeu"]
-[ext_resource type="Script" uid="uid://dixu1hmoi0tk" path="res://scripts/guest_mgt.gd" id="2_tipki"]
+[ext_resource type="Script" uid="uid://dixu1hmoi0tk" path="res://scripts/task_mgt.gd" id="2_tipki"]
 [ext_resource type="PackedScene" uid="uid://b181pbq2sxo0" path="res://prefabs/guest_tasks/go_to_reception.tscn" id="3_85g3d"]
 [ext_resource type="PackedScene" uid="uid://swncf76j0yrp" path="res://prefabs/guest_tasks/discuss_stay.tscn" id="4_choun"]
 [ext_resource type="PackedScene" uid="uid://bqqftwfar4q0x" path="res://prefabs/guest_tasks/go_to_room.tscn" id="5_ya4ey"]
@@ -28,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://bhe7jcpllmb3t" path="res://prefabs/room.tscn" id="18_2f3dj"]
 [ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
+[ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
+[ext_resource type="PackedScene" uid="uid://4m33o6cm7w62" path="res://prefabs/next_day_button.tscn" id="30_fv21b"]
+[ext_resource type="PackedScene" uid="uid://daqmmoe1hk8pu" path="res://prefabs/resources.tscn" id="30_tel4y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(100, 100)
@@ -42,7 +45,7 @@ script = ExtResource("1_tbgi4")
 script = ExtResource("2_jscy8")
 event_prefab = ExtResource("12_gqmmt")
 
-[node name="guest_mgt" type="Node" parent="."]
+[node name="task_mgt" type="Node" parent="."]
 script = ExtResource("2_tipki")
 go_to_reception = ExtResource("3_85g3d")
 discuss_stay = ExtResource("4_choun")
@@ -61,11 +64,11 @@ script = ExtResource("7_a8y0u")
 [node name="floor_mgt" type="Node" parent="."]
 script = ExtResource("9_muem4")
 
-[node name="camera" type="Camera2D" parent="."]
-position = Vector2(126, -2)
-
 [node name="events" type="Node2D" parent="."]
 position = Vector2(-7, -2)
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(132, -99)
 
 [node name="world" type="Node2D" parent="."]
 position = Vector2(-7, -2)
@@ -183,13 +186,11 @@ vertical_alignment = 1
 position = Vector2(486, 0)
 
 [node name="civilian2" parent="world/floor_1" instance=ExtResource("22_jscy8")]
-position = Vector2(606, -1)
-
-[node name="civilian3" parent="world/floor_1" instance=ExtResource("22_jscy8")]
-position = Vector2(698, -1)
+position = Vector2(606, 0)
 
 [node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]
 z_index = 2055
+position = Vector2(6, -97)
 script = ExtResource("10_y6deb")
 feed_container = NodePath("column/panel/feed_container")
 event_feed_text_prefab = ExtResource("11_og1vs")
@@ -226,3 +227,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="clock" parent="." instance=ExtResource("29_yq6so")]
+position = Vector2(148, -370)
+
+[node name="resources" parent="." instance=ExtResource("30_tel4y")]
+position = Vector2(2, -376)
+
+[node name="next_day_button" parent="." instance=ExtResource("30_fv21b")]
+position = Vector2(321, -374)

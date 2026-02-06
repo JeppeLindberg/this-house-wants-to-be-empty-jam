@@ -19,7 +19,6 @@ func initialize():
 	guest = get_parent().get_parent()
 
 	room = room_mgt.get_room_node(guest.room_number)
-	print(room)
 
 	for interactable in main.get_children_in_group(world, 'guest_interactable'):
 		if interactable.is_in_group('elevator'):

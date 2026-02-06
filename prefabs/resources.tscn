@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://daqmmoe1hk8pu"]
+
+[ext_resource type="Script" uid="uid://b658dgatov7m1" path="res://scripts/resources.gd" id="1_mw7ff"]
+
+[node name="resources" type="Node2D" node_paths=PackedStringArray("coin_text", "fervor_text")]
+script = ExtResource("1_mw7ff")
+coin_text = NodePath("coin/text")
+fervor_text = NodePath("fervor/text")
+
+[node name="coin" type="Node2D" parent="."]
+
+[node name="label" type="Label" parent="coin"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "COIN: "
+
+[node name="text" type="Label" parent="coin"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 45.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "0"
+
+[node name="fervor" type="Node2D" parent="."]
+position = Vector2(0, 24)
+
+[node name="label" type="Label" parent="fervor"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -11.5
+offset_bottom = 11.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "FERVOR: "
+
+[node name="text" type="Label" parent="fervor"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -11.5
+offset_right = 45.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "0"

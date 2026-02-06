@@ -3,7 +3,7 @@ extends Area2D
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 @onready var tasks = get_node('tasks')
-@onready var guest_mgt = get_node('/root/main/guest_mgt')
+@onready var task_mgt = get_node('/root/main/task_mgt')
 @onready var event_mgt = get_node('/root/main/event_mgt')
 @onready var event_scripts = get_node('event_scripts')
 @onready var room_detector = get_node('room_detector')
@@ -68,17 +68,20 @@ func _assign_new_task():
 	if tasks.get_child_count() != 0:
 		return
 
-	var hesitate = append_task('hesitate')
-	hesitate.duration = HESITATE_DURATION_SECS * randf_range(0.5, 1.5)
-	if not attributes.has('assigned_room') and not attributes.has('declined_a_room'):
-		var go_to_reception = append_task('go_to_reception')
-		go_to_reception.event_script = discuss_stay_event_script
-		return
 	if attributes.has('assigned_room'):
 		append_task('go_to_room')
 		return
+
 	if attributes.has('declined_a_room'):
 		append_task('leave_motel')
+		return
+
+	var hesitate = append_task('hesitate')
+	hesitate.duration = HESITATE_DURATION_SECS * randf_range(0.5, 1.5)
+
+	if not attributes.has('assigned_room') and not attributes.has('declined_a_room'):
+		var go_to_reception = append_task('go_to_reception')
+		go_to_reception.event_script = discuss_stay_event_script
 		return
 
 func append_task(task_name):
@@ -87,7 +90,7 @@ func append_task(task_name):
 func insert_task(index, task_name):
 	print(task_name)
 	
-	var new_task_prefab = guest_mgt.get_task_prefab(task_name)
+	var new_task_prefab = task_mgt.get_task_prefab(task_name)
 	if new_task_prefab == null:
 		return
 
@@ -112,7 +115,7 @@ func set_state(new_state):
 func move_guest_toward(node, queue_behind_nodes_with_tasks = [], queue_behind_nodes_in_state = []):	
 	movement.move_toward(node, queue_behind_nodes_with_tasks, queue_behind_nodes_in_state)
 
-	if movement.target_movement == 'none':
+	if movement.target_movement == 'queued':
 		clear_tasks()
 		set_state('standing_in_queue')
 

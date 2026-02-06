@@ -32,11 +32,16 @@ Gæster kan nu få fordelt 1 af 3 rum
 
 Gæster kan nu stille sig i kø, og venter på deres tur til at blive indlogeret
 
+# 26-02-06
+
+Nu er der et ur der viser hvilken dag på ugen det er
+
 # To do
 
 
-Opret receptionssystem, med en kø af nye indlejrere
+Opret tids-system
+* At afslutte dagen skal give et antal ressourcer for hver gæst, plus bonusser (Brug et subscriber system)
 
-Opret tids-system, med et ur der tæller dage og uger
+Opret resource-tracking system
 
 Opret hjælper system, med terminaler som hjælpere kan bruge til at gøre deres ting
