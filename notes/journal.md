@@ -46,6 +46,8 @@ Tilføjet subscriber system til at afslutte dagen
 
 Tilføjet subscriber til gæst for at indkassere leje
 
+Tilføjet subscriber til gæst for at nulstille position i starten af dagen
+
 # To do
 
 
@@ -56,3 +58,7 @@ Opret tids-system
 Opret resource-tracking system
 
 Opret hjælper system, med terminaler som hjælpere kan bruge til at gøre deres ting
+
+# Bugs
+
+Hvis 2 gæster gerne vil med elevator på samme tid er der problemer
