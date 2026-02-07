@@ -36,11 +36,22 @@ Gæster kan nu stille sig i kø, og venter på deres tur til at blive indlogeret
 
 Nu er der et ur der viser hvilken dag på ugen det er
 
+Tilføjet placeholder klap til at gå til næste dag
+
+Tilføjet placeholder til ressource UI
+
+# 26-02-07
+
+Tilføjet subscriber system til at afslutte dagen
+
+Tilføjet subscriber til gæst for at indkassere leje
+
 # To do
 
 
 Opret tids-system
-* At afslutte dagen skal give et antal ressourcer for hver gæst, plus bonusser (Brug et subscriber system)
+* Når dagen slutter skal alle retuneres til deres værelser
+* At afslutte dagen skal give et antal ressourcer for hver installation
 
 Opret resource-tracking system
 

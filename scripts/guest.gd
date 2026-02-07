@@ -4,7 +4,9 @@ extends Area2D
 @onready var world = get_node('/root/main/world')
 @onready var tasks = get_node('tasks')
 @onready var task_mgt = get_node('/root/main/task_mgt')
+@onready var subscriber_mgt = get_node('/root/main/subscriber_mgt')
 @onready var event_mgt = get_node('/root/main/event_mgt')
+@onready var resources = get_node('/root/main/resources')
 @onready var event_scripts = get_node('event_scripts')
 @onready var room_detector = get_node('room_detector')
 @onready var movement = get_node('movement')
@@ -33,6 +35,12 @@ func _ready() -> void:
 	for child in event_scripts.get_children():
 		if child.is_in_group('discuss_stay'):
 			discuss_stay_event_script = child
+	
+	subscriber_mgt.subscribe_day_end_callables(self, collect_rent)
+
+func collect_rent():
+	if 'assigned_room' in attributes:
+		resources.coin += 1
 
 func _process(delta: float) -> void:
 	lifetime += delta
@@ -88,7 +96,7 @@ func append_task(task_name):
 	return insert_task(tasks.get_child_count(), task_name)
 
 func insert_task(index, task_name):
-	print(task_name)
+	print('insert_task: ' + task_name)
 	
 	var new_task_prefab = task_mgt.get_task_prefab(task_name)
 	if new_task_prefab == null:

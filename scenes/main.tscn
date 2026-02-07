@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=40 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -25,7 +25,9 @@
 [ext_resource type="PackedScene" uid="uid://dxjtphs6bqbam" path="res://prefabs/event.tscn" id="12_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dyijearirnba0" path="res://prefabs/guest_tasks/wait_for_event_finished.tscn" id="13_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://bsfthsdopw7rv" path="res://prefabs/guest_tasks/leave_motel.tscn" id="14_vxglm"]
+[ext_resource type="Script" uid="uid://cca6mysw7o6nl" path="res://scripts/subscriber_mgt.gd" id="17_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://bhe7jcpllmb3t" path="res://prefabs/room.tscn" id="18_2f3dj"]
+[ext_resource type="Script" uid="uid://dhw1wk8qr04gf" path="res://scripts/time_mgt.gd" id="18_5q0nq"]
 [ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
 [ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
@@ -37,6 +39,58 @@ size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
 size = Vector2(431, 223)
+
+[sub_resource type="Animation" id="Animation_5q0nq"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dgi5k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j8jky"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8jky"]
+_data = {
+&"RESET": SubResource("Animation_dgi5k"),
+&"fade_in": SubResource("Animation_5q0nq"),
+&"fade_out": SubResource("Animation_j8jky")
+}
 
 [node name="main" type="Node"]
 script = ExtResource("1_tbgi4")
@@ -63,6 +117,12 @@ script = ExtResource("7_a8y0u")
 
 [node name="floor_mgt" type="Node" parent="."]
 script = ExtResource("9_muem4")
+
+[node name="subscriber_mgt" type="Node" parent="."]
+script = ExtResource("17_qkpxi")
+
+[node name="time_mgt" type="Node" parent="."]
+script = ExtResource("18_5q0nq")
 
 [node name="events" type="Node2D" parent="."]
 position = Vector2(-7, -2)
@@ -236,3 +296,15 @@ position = Vector2(2, -376)
 
 [node name="next_day_button" parent="." instance=ExtResource("30_fv21b")]
 position = Vector2(321, -374)
+
+[node name="blackout" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+
+[node name="sprite" type="Sprite2D" parent="blackout"]
+scale = Vector2(14.744802, 10.691969)
+texture = ExtResource("1_o5qli")
+
+[node name="animation" type="AnimationPlayer" parent="blackout"]
+libraries = {
+&"": SubResource("AnimationLibrary_j8jky")
+}
