@@ -44,7 +44,7 @@ func process_behaviour(_delta):
 	guest.move_guest_toward(room_door)
 
 	if guest.global_position.distance_to(room_door.global_position) < 1.0:
-		guest.reparent(room)
+		guest.move_to(room)
 		guest.insert_task(0, 'wait_in_room')
 		queue_free()
 		 

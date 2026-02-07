@@ -6,6 +6,7 @@ extends Area2D
 @onready var task_mgt = get_node('/root/main/task_mgt')
 @onready var subscriber_mgt = get_node('/root/main/subscriber_mgt')
 @onready var event_mgt = get_node('/root/main/event_mgt')
+@onready var room_mgt = get_node('/root/main/room_mgt')
 @onready var resources = get_node('/root/main/resources')
 @onready var event_scripts = get_node('event_scripts')
 @onready var room_detector = get_node('room_detector')
@@ -37,10 +38,18 @@ func _ready() -> void:
 			discuss_stay_event_script = child
 	
 	subscriber_mgt.subscribe_day_end_callables(self, collect_rent)
+	subscriber_mgt.subscribe_day_start_callables(self, prepare_next_day)
 
 func collect_rent():
 	if 'assigned_room' in attributes:
 		resources.coin += 1
+
+func prepare_next_day():
+	if not 'assigned_room' in attributes:
+		queue_free()
+
+	var room_node = room_mgt.get_room_node(room_number)
+	move_to(room_node)
 
 func _process(delta: float) -> void:
 	lifetime += delta
@@ -141,8 +150,6 @@ func get_current_state():
 		return 'moving_right'
 
 	return 'idle'
-
-		
 
 func move_to(room_node):
 	self.reparent(room_node)

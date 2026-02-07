@@ -10,6 +10,7 @@ func go_to_next_day():
 	blackout_anim.play('fade_in')
 	var finished = blackout_anim.animation_finished
 	await finished
+	subscriber_mgt.trigger_day_start()
 	blackout_anim.play('fade_out')
 	await finished
 

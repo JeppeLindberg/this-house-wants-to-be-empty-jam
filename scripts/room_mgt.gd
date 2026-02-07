@@ -12,7 +12,6 @@ func get_room_node(room_number):
 	
 	return null
 
-
 func get_floor(node):
 	return main.find_in_parents(node, 'floor')
 
