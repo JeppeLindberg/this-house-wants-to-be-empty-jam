@@ -43,10 +43,12 @@ func _ready() -> void:
 func collect_rent():
 	if 'assigned_room' in attributes:
 		resources.coin += 1
+		await get_tree().create_timer(1.0).timeout
 
 func prepare_next_day():
 	if not 'assigned_room' in attributes:
 		queue_free()
+		return;
 
 	var room_node = room_mgt.get_room_node(room_number)
 	move_to(room_node)

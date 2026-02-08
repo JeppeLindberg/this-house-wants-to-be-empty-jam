@@ -23,7 +23,7 @@ func initialize():
 	for interactable in main.get_children_in_group(world, 'guest_interactable'):
 		if interactable.is_in_group('elevator'):
 			elevator = interactable
-		if interactable.get_parent() == room:
+		if interactable.is_in_group('door') and interactable.get_parent() == room:
 			room_door = interactable
 
 

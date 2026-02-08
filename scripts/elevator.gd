@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var floor_mgt = get_node('/root/main/floor_mgt')
+@onready var subscriber_mgt = get_node('/root/main/subscriber_mgt')
 
 @export var floor_1: Node
 @export var floor_2: Node
@@ -15,6 +16,13 @@ const WAIT_SECONDS = 1.0
 
 func _ready() -> void:
 	add_to_group('elevator')
+
+	subscriber_mgt.subscribe_day_start_callables(self, prepare_next_day)
+
+func prepare_next_day():
+	floor_queue = []
+	move_to(floor_mgt.get_floor_node([1, 2].pick_random()))
+	position = Vector2.ZERO
 
 func call_to_floor(floor_number):
 	floor_queue.append(floor_number)

@@ -48,16 +48,21 @@ Tilføjet subscriber til gæst for at indkassere leje
 
 Tilføjet subscriber til gæst for at nulstille position i starten af dagen
 
+Når dagen slutter bliver alle retuneret til deres værelser
+
+# 26-02-08
+
+Der er oprettet begyndelsen til et hjælper system
+
 # To do
 
 
 Opret tids-system
-* Når dagen slutter skal alle retuneres til deres værelser
 * At afslutte dagen skal give et antal ressourcer for hver installation
 
-Opret resource-tracking system
-
 Opret hjælper system, med terminaler som hjælpere kan bruge til at gøre deres ting
+
+Når et event bliver resolved skal spillet pause
 
 # Bugs
 

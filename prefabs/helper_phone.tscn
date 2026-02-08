@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://ccgk4hd140t4w"]
+
+[ext_resource type="Script" uid="uid://ddnjja7i67vva" path="res://scripts/helper_phone.gd" id="1_2sue2"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="2_wqrkk"]
+[ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="2_yyalw"]
+[ext_resource type="Script" uid="uid://d3dsqcxy7o0fq" path="res://scripts/helper_interactable.gd" id="3_yyalw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(150, 143)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqrkk"]
+radius = 38.052597
+
+[node name="helper_phone" type="Area2D"]
+script = ExtResource("1_2sue2")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_a8y0u")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="door" type="Node2D" parent="."]
+
+[node name="visual" type="Node2D" parent="door"]
+
+[node name="sprite" type="Sprite2D" parent="door/visual"]
+texture = ExtResource("2_wqrkk")
+
+[node name="center" type="CenterContainer" parent="door/visual"]
+offset_right = 40.0
+offset_bottom = 40.0
+use_top_left = true
+
+[node name="Label" type="Label" parent="door/visual/center"]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "PHONE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="helper_interactable" type="Area2D" parent="."]
+script = ExtResource("3_yyalw")
+
+[node name="shape" type="CollisionShape2D" parent="helper_interactable"]
+shape = SubResource("CircleShape2D_wqrkk")
+
+[node name="visual" type="Node2D" parent="helper_interactable"]
+
+[node name="sprite" type="Sprite2D" parent="helper_interactable/visual"]
+self_modulate = Color(0.40392157, 0.09803922, 0.69803923, 0.5019608)
+scale = Vector2(0.77179027, 0.77179027)
+texture = ExtResource("2_yyalw")
+
+[node name="sprite" type="Sprite2D" parent="."]
+self_modulate = Color(0.8205747, 0.8704713, 1, 0.5019608)
+z_index = -335
+scale = Vector2(1.5, 1.414)
+texture = ExtResource("2_wqrkk")
+
+[connection signal="input_event" from="helper_interactable" to="helper_interactable" method="_on_input_event"]

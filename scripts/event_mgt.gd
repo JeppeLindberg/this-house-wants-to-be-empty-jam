@@ -5,8 +5,13 @@ extends Node
 
 @export var event_prefab: PackedScene
 
+var allow_new_events = true
+
 
 func spawn_event(event_script, source_node):
+	if not allow_new_events:
+		return null
+
 	var event = event_prefab.instantiate()
 	events.add_child(event)
 	event.global_position = source_node.global_position

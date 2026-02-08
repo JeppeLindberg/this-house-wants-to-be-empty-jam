@@ -50,3 +50,11 @@ func find_in_parents(node, group):
 			return node
 		
 	return null
+
+func is_child_of(node, parent):
+	while node != self:
+		node = node.get_parent()
+		if node == parent:
+			return true
+		
+	return false

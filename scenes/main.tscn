@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=45 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -28,32 +28,22 @@
 [ext_resource type="Script" uid="uid://cca6mysw7o6nl" path="res://scripts/subscriber_mgt.gd" id="17_qkpxi"]
 [ext_resource type="PackedScene" uid="uid://bhe7jcpllmb3t" path="res://prefabs/room.tscn" id="18_2f3dj"]
 [ext_resource type="Script" uid="uid://dhw1wk8qr04gf" path="res://scripts/time_mgt.gd" id="18_5q0nq"]
+[ext_resource type="Script" uid="uid://cubg7vg4le5h2" path="res://scripts/mouse_follower.gd" id="19_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
+[ext_resource type="PackedScene" uid="uid://ccgk4hd140t4w" path="res://prefabs/helper_phone.tscn" id="28_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
 [ext_resource type="PackedScene" uid="uid://4m33o6cm7w62" path="res://prefabs/next_day_button.tscn" id="30_fv21b"]
 [ext_resource type="PackedScene" uid="uid://daqmmoe1hk8pu" path="res://prefabs/resources.tscn" id="30_tel4y"]
+[ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="34_dgi5k"]
+[ext_resource type="PackedScene" uid="uid://wufa8gi4e374" path="res://prefabs/helper.tscn" id="35_j8jky"]
+[ext_resource type="Script" uid="uid://bspnd7h12j5d7" path="res://scripts/idle_helpers.gd" id="37_pibwh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(100, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
 size = Vector2(431, 223)
-
-[sub_resource type="Animation" id="Animation_5q0nq"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_dgi5k"]
 length = 0.001
@@ -68,6 +58,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5q0nq"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_j8jky"]
@@ -124,6 +129,18 @@ script = ExtResource("17_qkpxi")
 [node name="time_mgt" type="Node" parent="."]
 script = ExtResource("18_5q0nq")
 
+[node name="mouse_follower" type="Node2D" parent="."]
+z_index = 1220
+script = ExtResource("19_kmb1v")
+
+[node name="container" type="Node2D" parent="mouse_follower"]
+position = Vector2(0, 35)
+
+[node name="sprite" type="Sprite2D" parent="mouse_follower"]
+visible = false
+scale = Vector2(0.19099256, 0.19099256)
+texture = ExtResource("34_dgi5k")
+
 [node name="events" type="Node2D" parent="."]
 position = Vector2(-7, -2)
 
@@ -131,7 +148,6 @@ position = Vector2(-7, -2)
 position = Vector2(132, -99)
 
 [node name="world" type="Node2D" parent="."]
-position = Vector2(-7, -2)
 
 [node name="floor_2" type="Node2D" parent="world"]
 position = Vector2(0, -253)
@@ -248,7 +264,11 @@ position = Vector2(486, 0)
 [node name="civilian2" parent="world/floor_1" instance=ExtResource("22_jscy8")]
 position = Vector2(606, 0)
 
+[node name="helper_phone" parent="world/floor_1" instance=ExtResource("28_kmb1v")]
+position = Vector2(-113, 0)
+
 [node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]
+visible = false
 z_index = 2055
 position = Vector2(6, -97)
 script = ExtResource("10_y6deb")
@@ -308,3 +328,23 @@ texture = ExtResource("1_o5qli")
 libraries = {
 &"": SubResource("AnimationLibrary_j8jky")
 }
+
+[node name="idle_helpers" type="Node2D" parent="."]
+position = Vector2(-27, 174)
+script = ExtResource("37_pibwh")
+
+[node name="helper_slot_1" type="Node2D" parent="idle_helpers"]
+
+[node name="helper" parent="idle_helpers/helper_slot_1" instance=ExtResource("35_j8jky")]
+
+[node name="helper_slot_2" type="Node2D" parent="idle_helpers"]
+position = Vector2(50, 0)
+
+[node name="helper_slot_3" type="Node2D" parent="idle_helpers"]
+position = Vector2(100, 0)
+
+[node name="helper_slot_4" type="Node2D" parent="idle_helpers"]
+position = Vector2(150, 0)
+
+[node name="helper_slot_5" type="Node2D" parent="idle_helpers"]
+position = Vector2(200, 0)
