@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://bystq3vk3iwi2"]
+[gd_scene load_steps=2 format=3 uid="uid://bystq3vk3iwi2"]
+
+[ext_resource type="Script" uid="uid://dnt4k7pekeunp" path="res://scripts/event_feed_text.gd" id="1_fdeft"]
 
 [node name="event_feed_text" type="RichTextLabel"]
 bbcode_enabled = true
 text = "hello hello hello hello hello hello hello hello "
 fit_content = true
+script = ExtResource("1_fdeft")

@@ -7,7 +7,8 @@ var guest = null
 
 var manuscript = {
 	'0': {
-		'text': 'hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello hello',
+		'talker': 'Stranger',
+		'text': 'Geez, <wave>what a weather huh?<normal>',
 		'buttons': [
 			{
 				'text': 'continue',
@@ -17,7 +18,8 @@ var manuscript = {
 		]
 	},
 	'1': {
-		'text': 'hello hello hello hello hello hello hello hello hello hello hello',
+		'talker': 'Stranger',
+		'text': 'I am looking for a place to stay. Do you have any space?',
 		'buttons': [
 			{
 				'text': 'allow',
@@ -32,6 +34,7 @@ var manuscript = {
 		]
 	},
 	'A2': {
+		'talker': 'Stranger',
 		'text': 'Thank you.',
 		'buttons': [
 			{
@@ -42,6 +45,7 @@ var manuscript = {
 		]
 	},
 	'B2': {
+		'talker': 'Stranger',
 		'text': 'Big mistake, pal.',
 		'buttons': [
 			{

@@ -258,17 +258,13 @@ text = "RECEPTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="civilian" parent="world/floor_1" instance=ExtResource("22_jscy8")]
-position = Vector2(486, 0)
-
-[node name="civilian2" parent="world/floor_1" instance=ExtResource("22_jscy8")]
-position = Vector2(606, 0)
-
 [node name="helper_phone" parent="world/floor_1" instance=ExtResource("28_kmb1v")]
 position = Vector2(-113, 0)
 
+[node name="civilian" parent="world/floor_1" instance=ExtResource("22_jscy8")]
+position = Vector2(451, 0)
+
 [node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]
-visible = false
 z_index = 2055
 position = Vector2(6, -97)
 script = ExtResource("10_y6deb")

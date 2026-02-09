@@ -62,13 +62,23 @@ Man kan nu trække en hjælper fra idle_helpers til en station
 
 # To do
 
-
 Opret tids-system
-* At afslutte dagen skal give et antal ressourcer for hver installation
-
-Opret hjælper system, med terminaler som hjælpere kan bruge til at gøre deres ting
+* Indtil videre skal spillet kun vare 1 uge, senere udvides dette til at vare længere. Demo skal være lille
+* I slutningen af hver uge skal hjælpere nulstilles
 
 Når et event bliver resolved skal spillet pause
+
+Tekst display
+* Skal scrolle med nye symboler hver x milisekunder
+
+Opret forskellige typer gæster, som har forskellig dialog når de indlogerer
+* Bounty hunter
+* Vampire
+* Mad hatter
+* Drifter
+
+Ting der skal være i demoen:
+* Tutorial system der via dialog fortæller hvad spilleren skal gøre
 
 # Bugs
 

@@ -34,7 +34,7 @@ func clear():
 
 func add_text(new_text):
 	var new_feed_text = event_feed_text_prefab.instantiate()
-	new_feed_text.text = new_text
+	new_feed_text.set_text_raw(new_text)
 	feed_container.add_child(new_feed_text)
 
 func add_button(new_button_dict):
