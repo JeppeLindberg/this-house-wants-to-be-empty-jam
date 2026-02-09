@@ -8,6 +8,9 @@ var return_to_idle = false
 
 
 
+func _ready() -> void:
+	add_to_group('helper')
+
 func _process(_delta: float) -> void:
 	if return_to_idle:
 		return_to_idle = false
@@ -35,4 +38,10 @@ func click_down():
 		position = Vector2.ZERO
 
 func click_up():
-	return_to_idle = true
+	if main.is_child_of(self, mouse_container):
+		return_to_idle = true
+
+func move_to(node):	
+	reparent(node)
+	return_to_idle = false
+	position = Vector2.ZERO

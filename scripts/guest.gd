@@ -107,7 +107,7 @@ func append_task(task_name):
 	return insert_task(tasks.get_child_count(), task_name)
 
 func insert_task(index, task_name):
-	print('insert_task: ' + task_name)
+	# print('insert_task: ' + task_name)
 	
 	var new_task_prefab = task_mgt.get_task_prefab(task_name)
 	if new_task_prefab == null:

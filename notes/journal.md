@@ -52,7 +52,13 @@ Når dagen slutter bliver alle retuneret til deres værelser
 
 # 26-02-08
 
-Der er oprettet begyndelsen til et hjælper system
+Der er oprettet begyndelsen til et hjælper system, samt en telefon bod til hjælpere
+
+# 26-02-09
+
+Hjælper systemet fungerer nu med at samle ressourcer
+
+Man kan nu trække en hjælper fra idle_helpers til en station
 
 # To do
 
