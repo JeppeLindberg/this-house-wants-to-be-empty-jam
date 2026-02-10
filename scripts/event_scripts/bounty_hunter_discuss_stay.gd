@@ -8,7 +8,7 @@ var guest = null
 var manuscript = {
 	'0': {
 		'text_style': '<narration>',
-		'text': 'A man with a grim expression is standing at the counter.',
+		'text': 'A man with a grim expression is standing at the counter. His eyes dart around the dark corners of the room, before focusing on Naomi.',
 		'buttons': [
 			{
 				'text': 'Continue',
@@ -19,42 +19,86 @@ var manuscript = {
 	},
 	'1': {
 		'talker': 'Bounty Hunter',
-		'text': 'I am looking for a place to stay. Do you have any space?',
-		'buttons': [
-			{
-				'text': 'allow',
-				'command': 'go_to',
-				'param_1': 'A2'
-			},
-			{
-				'text': 'decline',
-				'command': 'go_to',
-				'param_1': 'B2'
-			}
-		]
-	},
-	'A2': {
-		'talker': 'Bounty Hunter',
-		'text': 'Thank you.',
+		'text': 'Scotch and a beer.',
 		'buttons': [
 			{
 				'text': 'Continue',
+				'command': 'go_to',
+				'param_1': '2'
+			}
+		]
+	},
+	'2': {
+		'talker': 'Naomi',
+		'text': 'The bar is down the road bud.',
+		'buttons': [
+			{
+				'text': 'Continue',
+				'command': 'go_to',
+				'param_1': '3'
+			}
+		]
+	},
+	'3': {
+		'talker': 'Bounty Hunter',
+		'text': 'You mean to tell me that I cannot even get a stiff drink at a motel nowadays?',
+		'buttons': [
+			{
+				'text': 'Continue',
+				'command': 'go_to',
+				'param_1': '4'
+			}
+		]
+	},
+	'4': {
+		'talker': 'Naomi',
+		'text': 'Dunno, check the vending machine. You have to have a room if you want to use it though, thats the policy',
+		'buttons': [
+			{
+				'text': 'Continue',
+				'command': 'go_to',
+				'param_1': '5'
+			}
+		]
+	},
+	'5': {
+		'talker': 'Bounty Hunter',
+		'text': 'Fine. Whats the price?',
+		'buttons': [
+			{
+				'text': 'Allow',
+				'command': 'go_to',
+				'param_1': 'A1'
+			},
+			{
+				'text': 'Decline',
+				'command': 'go_to',
+				'param_1': 'B1'
+			}
+		]
+	},
+	'A1': {
+		'talker': 'Bounty Hunter',
+		'text': 'Finally.',
+		'buttons': [
+			{
+				'text': 'continue',
 				'command': 'assign_room_to_guest',
 				'finish': true
 			}
 		]
 	},
-	'B2': {
+	'B1': {
 		'talker': 'Bounty Hunter',
-		'text': 'Big mistake, pal.',
+		'text': 'Gah, whatever. I\'ll get my drinks elsewhere.',
 		'buttons': [
 			{
-				'text': 'Continue',
+				'text': 'continue',
 				'command': 'decline_guest',
 				'finish': true
 			}
 		]
-	},
+	}
 }
 
 

@@ -62,7 +62,9 @@ Man kan nu trække en hjælper fra idle_helpers til en station
 
 # 26-02-10
 
-Justeret scrolling text for at gøre det mere intutitivt at læse event text
+Justeret scrolling text for at gøre det mere intutitivt at læse event text, tilføjet nogle features omkring text farve mm
+
+Arbejdet på Bounty hunter gæst
 
 # To do
 

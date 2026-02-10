@@ -6,10 +6,11 @@ var _normal_tag = '<normal>'
 var extra_effects = \
 {
 	'<normal>': '@',
-	'<narration>': '[color c=#AAAAAAFF]@[/color]',
+	'<narration>': '[color c=#AAAAAA]@[/color]',
 	'<wave>': '[custom_wave index=%]@[/custom_wave]',
-	'<name,Stranger>': '[name color=#555599FF index=%]@[/name]',
-	'<name,Bounty Hunter>': '[name color=#995555FF index=%]@[/name]'
+	'<name,Naomi>': '[name color=#559955 index=%]@[/name]',
+	'<name,Stranger>': '[name color=#555599 index=%]@[/name]',
+	'<name,Bounty Hunter>': '[name color=#995555 index=%]@[/name]'
 }
 
 var all_symbols_visible = false
