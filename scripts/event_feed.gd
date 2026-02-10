@@ -7,10 +7,20 @@ extends Node2D
 var current_script = null
 var current_event = null
 
+const SYMBOLS_PER_SEC = 30.0
 
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	visible = feed_container.get_child_count() != 0
+
+	for child in feed_container.get_children():
+		if child is RichTextLabel and child.all_symbols_visible == false:
+			child.progress_symbols(SYMBOLS_PER_SEC * delta)
+			return
+		if child is Button and child.visible == false:
+			child.visible = true
+			return
+			
 
 func begin_script(event_script, event_source):
 	current_script = event_script
@@ -24,6 +34,8 @@ func go_to(denoter):
 		if child is Button:
 			child.disabled = true
 
+	var talker = current_script.manuscript[denoter]['talker']
+	add_text('<name,' + talker + '>' + talker)
 	add_text(current_script.manuscript[denoter]['text'])
 	for button in current_script.manuscript[denoter]['buttons']:
 		add_button(button)
@@ -56,5 +68,7 @@ func add_button(new_button_dict):
 			current_script.trigger_end()
 			current_event.queue_free()
 		)
+
+	new_button.visible = false
 
 	feed_container.add_child(new_button)

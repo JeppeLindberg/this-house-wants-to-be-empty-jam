@@ -8,7 +8,7 @@ var guest = null
 var manuscript = {
 	'0': {
 		'talker': 'Stranger',
-		'text': 'Geez, <wave>what a weather huh?<normal>',
+		'text': 'Geez, what a weather huh?',
 		'buttons': [
 			{
 				'text': 'continue',

@@ -8,7 +8,6 @@ class_name RichTextCustomWave
 var bbcode = "custom_wave"
 
 func _process_custom_fx(char_fx):
-	# Get parameters, or use the provided default value if missing.
 	var index = char_fx.env.get("index", 0)
 	var amp = char_fx.env.get("amp", 5.0)
 	var freq = char_fx.env.get("freq", 3.0)

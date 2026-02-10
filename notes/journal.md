@@ -60,6 +60,10 @@ Hjælper systemet fungerer nu med at samle ressourcer
 
 Man kan nu trække en hjælper fra idle_helpers til en station
 
+# 26-02-10
+
+Justeret scrolling text for at gøre det mere intutitivt at læse
+
 # To do
 
 Opret tids-system
