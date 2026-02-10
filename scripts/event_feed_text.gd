@@ -1,11 +1,15 @@
 extends RichTextLabel
 
 
+var _normal_tag = '<normal>'
+
 var extra_effects = \
-{	
+{
 	'<normal>': '@',
+	'<narration>': '[color c=#AAAAAAFF]@[/color]',
 	'<wave>': '[custom_wave index=%]@[/custom_wave]',
-	'<name,Stranger>': '[name color=#555599FF index=%]@[/name]'
+	'<name,Stranger>': '[name color=#555599FF index=%]@[/name]',
+	'<name,Bounty Hunter>': '[name color=#995555FF index=%]@[/name]'
 }
 
 var all_symbols_visible = false
@@ -15,8 +19,13 @@ var _symbols_progress = 0.0
 
 func _ready() -> void:
 	install_effect(RichTextAlpha.new())
+	install_effect(RichTextColor.new())
 	install_effect(RichTextCustomWave.new())
 	install_effect(RichTextName.new())
+
+func set_normal_tag(new_normal_tag):
+	if new_normal_tag != '':
+		_normal_tag = new_normal_tag
 
 func set_text_raw(raw, symbols = 0):
 	all_symbols_visible = false
@@ -34,7 +43,7 @@ func _raw_to_bb(raw, symbols):
 	var output = ''
 	var raw_index = 0
 	var bb_index = 0
-	var current_extra_effect = '<normal>'
+	var current_extra_effect = _normal_tag
 	var free_symbol = false
 
 	while raw_index < len(raw):

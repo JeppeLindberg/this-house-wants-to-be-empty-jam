@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=46 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -29,10 +29,11 @@
 [ext_resource type="PackedScene" uid="uid://bhe7jcpllmb3t" path="res://prefabs/room.tscn" id="18_2f3dj"]
 [ext_resource type="Script" uid="uid://dhw1wk8qr04gf" path="res://scripts/time_mgt.gd" id="18_5q0nq"]
 [ext_resource type="Script" uid="uid://cubg7vg4le5h2" path="res://scripts/mouse_follower.gd" id="19_kmb1v"]
-[ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/civilian.tscn" id="22_jscy8"]
+[ext_resource type="PackedScene" uid="uid://cy422lrw8sl58" path="res://prefabs/guests/stranger.tscn" id="22_jscy8"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
 [ext_resource type="PackedScene" uid="uid://ccgk4hd140t4w" path="res://prefabs/helper_phone.tscn" id="28_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
+[ext_resource type="PackedScene" uid="uid://bbletts04uktj" path="res://prefabs/guests/bounty_hunter.tscn" id="30_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://4m33o6cm7w62" path="res://prefabs/next_day_button.tscn" id="30_fv21b"]
 [ext_resource type="PackedScene" uid="uid://daqmmoe1hk8pu" path="res://prefabs/resources.tscn" id="30_tel4y"]
 [ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="34_dgi5k"]
@@ -261,7 +262,10 @@ vertical_alignment = 1
 [node name="helper_phone" parent="world/floor_1" instance=ExtResource("28_kmb1v")]
 position = Vector2(-113, 0)
 
-[node name="civilian" parent="world/floor_1" instance=ExtResource("22_jscy8")]
+[node name="bounty_hunter" parent="world/floor_1" instance=ExtResource("30_c6pm6")]
+position = Vector2(357, 0)
+
+[node name="stranger" parent="world/floor_1" instance=ExtResource("22_jscy8")]
 position = Vector2(451, 0)
 
 [node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]

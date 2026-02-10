@@ -62,7 +62,7 @@ Man kan nu trække en hjælper fra idle_helpers til en station
 
 # 26-02-10
 
-Justeret scrolling text for at gøre det mere intutitivt at læse
+Justeret scrolling text for at gøre det mere intutitivt at læse event text
 
 # To do
 
@@ -72,14 +72,15 @@ Opret tids-system
 
 Når et event bliver resolved skal spillet pause
 
-Tekst display
-* Skal scrolle med nye symboler hver x milisekunder
-
 Opret forskellige typer gæster, som har forskellig dialog når de indlogerer
 * Bounty hunter
 * Vampire
 * Mad hatter
 * Drifter
+
+Opret hjælper terminaler
+
+Opret system til at købe terminaler til dit motel
 
 Ting der skal være i demoen:
 * Tutorial system der via dialog fortæller hvad spilleren skal gøre

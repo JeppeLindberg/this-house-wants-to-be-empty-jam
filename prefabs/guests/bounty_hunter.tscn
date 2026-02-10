@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy422lrw8sl58"]
+[gd_scene load_steps=8 format=3 uid="uid://bbletts04uktj"]
 
-[ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="1_by2ye"]
-[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="2_e5m60"]
-[ext_resource type="Script" uid="uid://b7wp5qp8423kg" path="res://scripts/movement.gd" id="2_kisif"]
-[ext_resource type="Script" uid="uid://bo5fjkfxtm0ti" path="res://scripts/event_scripts/civilian_discuss_stay.gd" id="2_ms0yu"]
+[ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="1_5ji1b"]
+[ext_resource type="Script" uid="uid://b7wp5qp8423kg" path="res://scripts/movement.gd" id="2_hg62s"]
+[ext_resource type="Script" uid="uid://detslhqbw82gg" path="res://scripts/event_scripts/bounty_hunter_discuss_stay.gd" id="3_5ji1b"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_t7v1v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b0du"]
 radius = 27.0
@@ -14,8 +14,8 @@ radius = 6.0827627
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5m60"]
 radius = 75.00667
 
-[node name="civilian" type="Area2D" groups=["guest"]]
-script = ExtResource("1_by2ye")
+[node name="bounty_hunter" type="Area2D" groups=["guest"]]
+script = ExtResource("1_5ji1b")
 
 [node name="collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4b0du")
@@ -27,7 +27,7 @@ disabled = true
 [node name="tasks" type="Node2D" parent="."]
 
 [node name="movement" type="Node2D" parent="."]
-script = ExtResource("2_kisif")
+script = ExtResource("2_hg62s")
 
 [node name="guest_detector" type="CollisionShape2D" parent="movement"]
 shape = SubResource("CircleShape2D_e5m60")
@@ -35,12 +35,12 @@ disabled = true
 
 [node name="event_scripts" type="Node2D" parent="."]
 
-[node name="civilian_discuss_stay" type="Node2D" parent="event_scripts"]
-script = ExtResource("2_ms0yu")
+[node name="discuss_stay" type="Node2D" parent="event_scripts"]
+script = ExtResource("3_5ji1b")
 
 [node name="visual" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="visual"]
 self_modulate = Color(0.49019608, 0.50980395, 1, 1)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_e5m60")
+texture = ExtResource("4_t7v1v")

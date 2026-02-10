@@ -34,9 +34,16 @@ func go_to(denoter):
 		if child is Button:
 			child.disabled = true
 
-	var talker = current_script.manuscript[denoter]['talker']
-	add_text('<name,' + talker + '>' + talker)
-	add_text(current_script.manuscript[denoter]['text'])
+	var text_style = ''
+
+	if 'talker' in current_script.manuscript[denoter]:
+		var talker = current_script.manuscript[denoter]['talker']
+		add_text('<name,' + talker + '>' + talker)
+
+	if 'text_style' in current_script.manuscript[denoter]:
+		text_style = current_script.manuscript[denoter]['text_style']
+
+	add_text(current_script.manuscript[denoter]['text'], text_style)
 	for button in current_script.manuscript[denoter]['buttons']:
 		add_button(button)
 
@@ -44,8 +51,9 @@ func clear():
 	for child in feed_container.get_children():
 		child.queue_free()
 
-func add_text(new_text):
+func add_text(new_text, text_style = ''):
 	var new_feed_text = event_feed_text_prefab.instantiate()
+	new_feed_text.set_normal_tag(text_style)
 	new_feed_text.set_text_raw(new_text)
 	feed_container.add_child(new_feed_text)
 
