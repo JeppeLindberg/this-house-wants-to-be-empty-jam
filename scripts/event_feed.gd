@@ -34,12 +34,18 @@ func go_to(denoter):
 		if child is Button:
 			child.disabled = true
 
-	var text_style = ''
-
 	if 'talker' in current_script.manuscript[denoter]:
-		var talker = current_script.manuscript[denoter]['talker']
-		add_text('<name,' + talker + '>' + talker)
+		var talker_style = ''
+		if 'talker_style' in current_script.manuscript[denoter]:
+			talker_style = current_script.manuscript[denoter]['talker_style']
 
+		var talker = current_script.manuscript[denoter]['talker']
+		if talker_style == '':
+			talker_style = '<talker,' + talker + '>'
+
+		add_text(talker, talker_style)
+
+	var text_style = ''
 	if 'text_style' in current_script.manuscript[denoter]:
 		text_style = current_script.manuscript[denoter]['text_style']
 

@@ -66,6 +66,10 @@ Justeret scrolling text for at gøre det mere intutitivt at læse event text, ti
 
 Arbejdet på Bounty hunter gæst
 
+# 26-02-12
+
+Arbejdet på event tekst, til at tillade ??? navne
+
 # To do
 
 Opret tids-system
@@ -86,6 +90,20 @@ Opret system til at købe terminaler til dit motel
 
 Ting der skal være i demoen:
 * Tutorial system der via dialog fortæller hvad spilleren skal gøre
+
+# To do VISUAL
+
+Assets for Naomi (receptionist)
+* Hun er en lazy goth teenager som påkalder en demon for at styre motellet
+
+Assets for Bounty hunter
+* Grizzed individual, som en veteran der for længst har fået nok
+
+Assets for Vampire:
+* Kvinde i stor frakke, med en tyk krave af fjer. Tænk flapper, art deco
+
+Assets for Drifter
+* Person med en tung regnfrakke, med skygger så man ikke kan se deres ansigt
 
 # Bugs
 

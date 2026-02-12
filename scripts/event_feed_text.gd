@@ -8,9 +8,10 @@ var extra_effects = \
 	'<normal>': '@',
 	'<narration>': '[color c=#AAAAAA]@[/color]',
 	'<wave>': '[custom_wave index=%]@[/custom_wave]',
-	'<name,Naomi>': '[name color=#559955 index=%]@[/name]',
-	'<name,Stranger>': '[name color=#555599 index=%]@[/name]',
-	'<name,Bounty Hunter>': '[name color=#995555 index=%]@[/name]'
+	'<talker,Naomi>': '[talker color=#559955 index=%]@[/talker]',
+	'<talker,Stranger>': '[talker color=#555599 index=%]@[/talker]',
+	'<talker,Bounty Hunter>': '[talker color=#997455 index=%]@[/talker]',
+	'<talker,Vampire>': '[talker color=#995555 index=%]@[/talker]'
 }
 
 var all_symbols_visible = false
@@ -22,7 +23,7 @@ func _ready() -> void:
 	install_effect(RichTextAlpha.new())
 	install_effect(RichTextColor.new())
 	install_effect(RichTextCustomWave.new())
-	install_effect(RichTextName.new())
+	install_effect(RichTextTalker.new())
 
 func set_normal_tag(new_normal_tag):
 	if new_normal_tag != '':
@@ -57,7 +58,7 @@ func _raw_to_bb(raw, symbols):
 				raw_index += len(effect)
 				current_extra_effect = effect
 
-		free_symbol = 'name' in current_extra_effect
+		free_symbol = 'talker' in current_extra_effect
 
 		if raw_index < len(raw):
 			var next_output = raw[raw_index]

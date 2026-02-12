@@ -8,7 +8,7 @@ var guest = null
 var manuscript = {
 	'0': {
 		'text_style': '<narration>',
-		'text': 'A man with a grim expression is standing at the counter. His eyes dart around the dark corners of the room, before focusing on Naomi.',
+		'text': 'A woman with piercing eyes steps out of the shadows. She approaches Naomi.',
 		'buttons': [
 			{
 				'text': 'Continue',
@@ -18,9 +18,9 @@ var manuscript = {
 		]
 	},
 	'1': {
-		'talker_style': '<talker,Bounty Hunter>',
+		'talker_style': '<talker,Vampire>',
 		'talker': '???',
-		'text': 'Scotch and a beer.',
+		'text': 'Good afternoon, darling.',
 		'buttons': [
 			{
 				'text': 'Continue',
@@ -31,7 +31,7 @@ var manuscript = {
 	},
 	'2': {
 		'talker': 'Naomi',
-		'text': 'The bar is down the road, bud.',
+		'text': 'Hey.',
 		'buttons': [
 			{
 				'text': 'Continue',
@@ -41,31 +41,9 @@ var manuscript = {
 		]
 	},
 	'3': {
-		'talker_style': '<talker,Bounty Hunter>',
+		'talker_style': '<talker,Vampire>',
 		'talker': '???',
-		'text': 'You mean to tell me that I cannot even get a stiff drink at a motel nowadays?',
-		'buttons': [
-			{
-				'text': 'Continue',
-				'command': 'go_to',
-				'param_1': '4'
-			}
-		]
-	},
-	'4': {
-		'talker': 'Naomi',
-		'text': 'Dunno, check the vending machine. You have to have a room if you want to use it though, thats the policy',
-		'buttons': [
-			{
-				'text': 'Continue',
-				'command': 'go_to',
-				'param_1': '5'
-			}
-		]
-	},
-	'5': {
-		'talker': 'Bounty Hunter',
-		'text': 'Fine. Whats the price?',
+		'text': 'I need a room, if you don\'t mind.',
 		'buttons': [
 			{
 				'text': 'Allow',
@@ -80,8 +58,19 @@ var manuscript = {
 		]
 	},
 	'A1': {
-		'talker': 'Bounty Hunter',
-		'text': 'Finally.',
+		'talker': 'Vampire',
+		'text': 'Excellent. Do keep in mind that I might be coming and going at odd hours, if you don\'t mind.',
+		'buttons': [
+			{
+				'text': 'Continue',
+				'command': 'go_to',
+				'param_1': 'A2'
+			}
+		]
+	},
+	'A2': {
+		'talker': 'Naomi',
+		'text': 'Whatever. Just don\'t bother the other guests.',
 		'buttons': [
 			{
 				'text': 'continue',
@@ -91,8 +80,8 @@ var manuscript = {
 		]
 	},
 	'B1': {
-		'talker': 'Bounty Hunter',
-		'text': 'Gah, whatever. I\'ll get my drinks elsewhere.',
+		'talker': 'Vampire',
+		'text': '... Huh. Keep in mind that I tend to get my way, one way or another.',
 		'buttons': [
 			{
 				'text': 'continue',

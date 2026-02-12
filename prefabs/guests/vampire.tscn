@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://bnj08d5m1a422"]
+
+[ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="1_2mcac"]
+[ext_resource type="Script" uid="uid://b7wp5qp8423kg" path="res://scripts/movement.gd" id="2_q5e8g"]
+[ext_resource type="Script" uid="uid://upvb6aluqw4w" path="res://scripts/event_scripts/vampire_discuss_stay.gd" id="3_2mcac"]
+[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_7smdi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b0du"]
+radius = 27.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kisif"]
+radius = 6.0827627
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e5m60"]
+radius = 75.00667
+
+[node name="vampire" type="Area2D" groups=["guest"]]
+script = ExtResource("1_2mcac")
+
+[node name="collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4b0du")
+
+[node name="room_detector" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kisif")
+disabled = true
+
+[node name="tasks" type="Node2D" parent="."]
+
+[node name="movement" type="Node2D" parent="."]
+script = ExtResource("2_q5e8g")
+
+[node name="guest_detector" type="CollisionShape2D" parent="movement"]
+shape = SubResource("CircleShape2D_e5m60")
+disabled = true
+
+[node name="event_scripts" type="Node2D" parent="."]
+
+[node name="discuss_stay" type="Node2D" parent="event_scripts"]
+script = ExtResource("3_2mcac")
+
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
+self_modulate = Color(0.49019608, 0.50980395, 1, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_7smdi")
