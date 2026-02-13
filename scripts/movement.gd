@@ -8,6 +8,8 @@ const MOVE_SPEED = 100.0
 var target_movement = 'none'
 
 func _process(delta: float) -> void:
+	delta *= main.time_mult()
+	
 	var x_direction = 0.0
 	if target_movement == 'left':
 		x_direction -= 1.0

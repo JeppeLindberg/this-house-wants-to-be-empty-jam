@@ -16,6 +16,7 @@ func initialize():
 	guest = get_parent().get_parent()
 
 func process_behaviour(delta):
+	delta *= main.time_mult()
 	lifetime += delta
 
 	if lifetime > duration:

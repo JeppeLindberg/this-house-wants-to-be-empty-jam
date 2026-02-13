@@ -54,6 +54,7 @@ func prepare_next_day():
 	move_to(room_node)
 
 func _process(delta: float) -> void:
+	delta *= main.time_mult()
 	lifetime += delta
 
 	_detect_current_room()

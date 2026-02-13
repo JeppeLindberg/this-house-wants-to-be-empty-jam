@@ -4,10 +4,17 @@ extends Node
 @onready var main = get_node('/root/main')
 @onready var world = get_node('/root/main/world')
 @onready var time_mgt = get_node('/root/main/time_mgt')
+@onready var event_feed = get_node('/root/main/event_feed')
 
 
 func _ready():
 	time_mgt.start_first_day()
+
+func time_mult():
+	if event_feed != null and event_feed.visible:
+		return 0.0
+
+	return 1.0
 
 func get_nodes_in_shape(shape, collision_mask = 0, motion = Vector2.ZERO):
 	var temp_shape = PhysicsShapeQueryParameters2D.new()

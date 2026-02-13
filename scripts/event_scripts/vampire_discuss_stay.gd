@@ -43,7 +43,7 @@ var manuscript = {
 	'3': {
 		'talker_style': '<talker,Vampire>',
 		'talker': '???',
-		'text': 'I need a room, if you don\'t mind.',
+		'text': 'Do you have any rooms free? I would like to have one for a couple of nights.',
 		'buttons': [
 			{
 				'text': 'Allow',

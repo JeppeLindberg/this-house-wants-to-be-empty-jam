@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var main = get_node('/root/main')
 @onready var hours = get_node('hours')
 
 @export var monday: Node2D
@@ -14,7 +15,7 @@ var weekday = 1
 var hour = 0.0
 
 func _process(delta: float) -> void:
-	hour += delta
+	hour += delta * main.time_mult()
 	if hour > 24.0:
 		hour = 24.0
 

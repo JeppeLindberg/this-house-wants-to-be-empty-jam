@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var main = get_node('/root/main')
 @onready var floor_mgt = get_node('/root/main/floor_mgt')
 @onready var subscriber_mgt = get_node('/root/main/subscriber_mgt')
 
@@ -28,6 +29,7 @@ func call_to_floor(floor_number):
 	floor_queue.append(floor_number)
 
 func _process(delta: float) -> void:
+	delta *= main.time_mult()
 	lifetime += delta
 
 	if lifetime < wait_until:
