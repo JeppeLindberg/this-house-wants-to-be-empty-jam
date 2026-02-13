@@ -4,6 +4,10 @@ extends Node2D
 
 
 
+func _ready() -> void:
+	add_to_group('disabled')
+	visible = false
+
 func spawn_at_hour(hour):
 	while true:
 		if clock != null and clock.hour > hour:

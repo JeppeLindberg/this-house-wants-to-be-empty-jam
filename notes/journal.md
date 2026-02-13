@@ -74,7 +74,9 @@ Arbejdet på Vampire dialog
 
 # 26-02-13
 
-Tilføjet ur der tæller timer, og stump for at spawne nye gæster
+Tilføjet ur der tæller timer
+
+Tilføjet et delay system der venter indtil en hvis time før den spawner en gæst
 
 # To do
 

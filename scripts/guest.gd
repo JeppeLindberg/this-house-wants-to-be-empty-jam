@@ -54,6 +54,9 @@ func prepare_next_day():
 	move_to(room_node)
 
 func _process(delta: float) -> void:
+	if main.is_disabled(self):
+		return
+
 	delta *= main.time_mult()
 	lifetime += delta
 
