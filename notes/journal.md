@@ -70,11 +70,18 @@ Arbejdet på Bounty hunter gæst
 
 Arbejdet på event tekst, til at tillade ??? navne
 
+Arbejdet på Vampire dialog
+
+# 26-02-13
+
+Tilføjet ur der tæller timer, og stump for at spawne nye gæster
+
 # To do
 
 Opret tids-system
 * Indtil videre skal spillet kun vare 1 uge, senere udvides dette til at vare længere. Demo skal være lille
 * I slutningen af hver uge skal hjælpere nulstilles
+* I løbet af dagen skal et ur tælle tid, og kunne trigger visse ting såsom at der ankommer nye gæster
 
 Når et event bliver resolved skal spillet pause
 

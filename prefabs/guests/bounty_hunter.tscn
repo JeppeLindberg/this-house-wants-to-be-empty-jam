@@ -41,6 +41,6 @@ script = ExtResource("3_5ji1b")
 [node name="visual" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="visual"]
-self_modulate = Color(0.49019608, 0.50980395, 1, 1)
+self_modulate = Color(0.6, 0.45490196, 0.33333334, 1)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_t7v1v")

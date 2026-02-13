@@ -65,7 +65,7 @@ var manuscript = {
 	},
 	'5': {
 		'talker': 'Bounty Hunter',
-		'text': 'Fine. Whats the price?',
+		'text': 'Fine. Whats the price for a room?',
 		'buttons': [
 			{
 				'text': 'Allow',

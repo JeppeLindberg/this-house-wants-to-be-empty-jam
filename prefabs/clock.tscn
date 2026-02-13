@@ -19,6 +19,16 @@ sunday = NodePath("sunday")
 [node name="sprite" type="Sprite2D" parent="visual"]
 texture = ExtResource("2_16oxw")
 
+[node name="hours" type="Node2D" parent="."]
+
+[node name="visual" type="Node2D" parent="hours"]
+modulate = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[node name="sprite" type="Sprite2D" parent="hours/visual"]
+position = Vector2(0, -17.000002)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("2_16oxw")
+
 [node name="monday" parent="." instance=ExtResource("3_16oxw")]
 
 [node name="tuesday" parent="." instance=ExtResource("3_16oxw")]

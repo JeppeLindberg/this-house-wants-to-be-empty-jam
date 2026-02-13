@@ -10,6 +10,7 @@ present_color = Color(0.8796333, 0.50297385, 1, 1)
 future_color = Color(0.38686058, 0, 0.08053102, 1)
 
 [node name="visual" type="Node2D" parent="."]
+modulate = Color(0.50928617, 0.50928617, 0.50928617, 1)
 
 [node name="sprite" type="Sprite2D" parent="visual"]
 position = Vector2(0, -37.999996)

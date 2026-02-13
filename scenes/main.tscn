@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=45 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -29,13 +29,12 @@
 [ext_resource type="PackedScene" uid="uid://bhe7jcpllmb3t" path="res://prefabs/room.tscn" id="18_2f3dj"]
 [ext_resource type="Script" uid="uid://dhw1wk8qr04gf" path="res://scripts/time_mgt.gd" id="18_5q0nq"]
 [ext_resource type="Script" uid="uid://cubg7vg4le5h2" path="res://scripts/mouse_follower.gd" id="19_kmb1v"]
+[ext_resource type="Script" uid="uid://dw8h4h32orb0j" path="res://scripts/guest_spawner.gd" id="19_pibwh"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
 [ext_resource type="PackedScene" uid="uid://ccgk4hd140t4w" path="res://prefabs/helper_phone.tscn" id="28_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
-[ext_resource type="PackedScene" uid="uid://bbletts04uktj" path="res://prefabs/guests/bounty_hunter.tscn" id="30_c6pm6"]
 [ext_resource type="PackedScene" uid="uid://4m33o6cm7w62" path="res://prefabs/next_day_button.tscn" id="30_fv21b"]
 [ext_resource type="PackedScene" uid="uid://daqmmoe1hk8pu" path="res://prefabs/resources.tscn" id="30_tel4y"]
-[ext_resource type="PackedScene" uid="uid://bnj08d5m1a422" path="res://prefabs/guests/vampire.tscn" id="31_c6pm6"]
 [ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="34_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://wufa8gi4e374" path="res://prefabs/helper.tscn" id="35_j8jky"]
 [ext_resource type="Script" uid="uid://bspnd7h12j5d7" path="res://scripts/idle_helpers.gd" id="37_pibwh"]
@@ -129,6 +128,9 @@ script = ExtResource("17_qkpxi")
 
 [node name="time_mgt" type="Node" parent="."]
 script = ExtResource("18_5q0nq")
+
+[node name="guest_spawner" type="Node" parent="."]
+script = ExtResource("19_pibwh")
 
 [node name="mouse_follower" type="Node2D" parent="."]
 z_index = 1220
@@ -262,12 +264,6 @@ vertical_alignment = 1
 [node name="helper_phone" parent="world/floor_1" instance=ExtResource("28_kmb1v")]
 position = Vector2(-113, 0)
 
-[node name="bounty_hunter" parent="world/floor_1" instance=ExtResource("30_c6pm6")]
-position = Vector2(357, 0)
-
-[node name="vampire" parent="world/floor_1" instance=ExtResource("31_c6pm6")]
-position = Vector2(489, 0)
-
 [node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]
 z_index = 2055
 position = Vector2(6, -97)
@@ -317,18 +313,6 @@ position = Vector2(2, -376)
 [node name="next_day_button" parent="." instance=ExtResource("30_fv21b")]
 position = Vector2(321, -374)
 
-[node name="blackout" type="Node2D" parent="."]
-modulate = Color(0, 0, 0, 0)
-
-[node name="sprite" type="Sprite2D" parent="blackout"]
-scale = Vector2(14.744802, 10.691969)
-texture = ExtResource("1_o5qli")
-
-[node name="animation" type="AnimationPlayer" parent="blackout"]
-libraries = {
-&"": SubResource("AnimationLibrary_j8jky")
-}
-
 [node name="idle_helpers" type="Node2D" parent="."]
 position = Vector2(-27, 174)
 script = ExtResource("37_pibwh")
@@ -348,3 +332,15 @@ position = Vector2(150, 0)
 
 [node name="helper_slot_5" type="Node2D" parent="idle_helpers"]
 position = Vector2(200, 0)
+
+[node name="blackout" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 0)
+
+[node name="sprite" type="Sprite2D" parent="blackout"]
+scale = Vector2(14.744802, 10.691969)
+texture = ExtResource("1_o5qli")
+
+[node name="animation" type="AnimationPlayer" parent="blackout"]
+libraries = {
+&"": SubResource("AnimationLibrary_j8jky")
+}

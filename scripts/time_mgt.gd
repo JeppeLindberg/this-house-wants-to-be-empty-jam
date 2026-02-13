@@ -8,6 +8,9 @@ extends Node
 
 
 
+func start_first_day():
+	subscriber_mgt.trigger_day_start()
+	
 
 func go_to_next_day():
 	var _new_week = false
@@ -22,11 +25,11 @@ func go_to_next_day():
 	var finished = blackout_anim.animation_finished
 	await finished
 
-	clock.weekday += 1
-	
+	clock.weekday += 1	
 	if clock.weekday > 7:
 		_new_week = true
 		clock.weekday = 1
+	clock.hour = 0.0
 
 	subscriber_mgt.trigger_day_start()
 	blackout_anim.play('fade_out')
