@@ -22,6 +22,8 @@ func initialize():
 func process_behaviour(_delta):
 	guest.move_guest_toward(elevator)
 
-	if abs(guest.global_position.x - elevator.global_position.x) < 1.0:		
+	if abs(guest.global_position.x - elevator.global_position.x) < 1.0:
+		if guest.global_position.distance_to(elevator.global_position) < 1.0:
+			guest.move_to(elevator)
 		queue_free()
 		 

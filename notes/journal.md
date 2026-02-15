@@ -78,6 +78,12 @@ Tilføjet ur der tæller timer
 
 Tilføjet et delay system der venter indtil en hvis time før den spawner en gæst
 
+Events pauser nu spillet mens de bliver resolved
+
+# 26-02-14
+
+Rettet bug med elevator når den er nede i starten
+
 # To do
 
 Opret tids-system
@@ -85,13 +91,13 @@ Opret tids-system
 * I slutningen af hver uge skal hjælpere nulstilles
 * I løbet af dagen skal et ur tælle tid, og kunne trigger visse ting såsom at der ankommer nye gæster
 
-Når et event bliver resolved skal spillet pause
-
 Opret forskellige typer gæster, som har forskellig dialog når de indlogerer
 * Bounty hunter
 * Vampire
 * Mad hatter
 * Drifter
+
+Events skal time ud, med et default resultat
 
 Opret hjælper terminaler
 
