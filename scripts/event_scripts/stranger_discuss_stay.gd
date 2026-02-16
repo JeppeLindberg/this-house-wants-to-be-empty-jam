@@ -75,7 +75,7 @@ func trigger_end():
 func assign_room_to_guest():
 	var assigned_room = room_mgt.assign_random_room()
 	guest.room_number = assigned_room.number
-	guest.attributes.append('assigned_room')
+	guest.add_attribute('assigned_room')
 
 func decline_guest():
-	guest.attributes.append('declined_a_room')
+	guest.add_attribute('declined_a_room')

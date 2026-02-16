@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://co7qdefcn7yta"]
+
+[ext_resource type="Script" uid="uid://cy2eutaslnli0" path="res://scripts/ui_guest_summary.gd" id="1_shr2k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5poiv"]
+bg_color = Color(0.06469653, 0.064696535, 0.06469648, 0.8117647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cjbq"]
+bg_color = Color(1, 0.32654282, 0.39262193, 0.27450982)
+
+[node name="guest_summary" type="PanelContainer" node_paths=PackedStringArray("text")]
+theme_override_styles/panel = SubResource("StyleBoxFlat_5poiv")
+script = ExtResource("1_shr2k")
+text = NodePath("vbox/margin/text")
+
+[node name="vbox" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="portrait" type="PanelContainer" parent="vbox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_2cjbq")
+
+[node name="margin" type="MarginContainer" parent="vbox"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 5
+
+[node name="text" type="RichTextLabel" parent="vbox/margin"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "ASD
+ASD"
+fit_content = true

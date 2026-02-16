@@ -105,6 +105,8 @@ Opret system til at købe terminaler til dit motel
 
 Ting der skal være i demoen:
 * Tutorial system der via dialog fortæller hvad spilleren skal gøre
+* Gæst oversigt
+* Krav at spilleren skal bruge alle hjælpere hver dag
 
 # To do VISUAL
 

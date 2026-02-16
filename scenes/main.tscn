@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=50 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -41,6 +41,8 @@
 [ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="34_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://wufa8gi4e374" path="res://prefabs/helper.tscn" id="35_j8jky"]
 [ext_resource type="Script" uid="uid://bspnd7h12j5d7" path="res://scripts/idle_helpers.gd" id="37_pibwh"]
+[ext_resource type="PackedScene" uid="uid://co7qdefcn7yta" path="res://prefabs/ui_guest_summary.tscn" id="42_2cjbq"]
+[ext_resource type="Script" uid="uid://b4dvjsgvi5uxq" path="res://scripts/ui_guest_overview.gd" id="42_chjal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
 size = Vector2(100, 100)
@@ -350,3 +352,18 @@ texture = ExtResource("1_o5qli")
 libraries = {
 &"": SubResource("AnimationLibrary_j8jky")
 }
+
+[node name="guest_overview" type="Node2D" parent="." node_paths=PackedStringArray("vbox")]
+position = Vector2(-539, -484)
+script = ExtResource("42_chjal")
+guest_summary_prefab = ExtResource("42_2cjbq")
+vbox = NodePath("vbox")
+
+[node name="vbox" type="VBoxContainer" parent="guest_overview"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 110.0
+grow_horizontal = 2

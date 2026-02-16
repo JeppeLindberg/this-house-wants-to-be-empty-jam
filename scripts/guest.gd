@@ -8,6 +8,7 @@ extends Area2D
 @onready var event_mgt = get_node('/root/main/event_mgt')
 @onready var room_mgt = get_node('/root/main/room_mgt')
 @onready var resources = get_node('/root/main/resources')
+@onready var guest_overview = get_node('/root/main/guest_overview')
 @onready var event_scripts = get_node('event_scripts')
 @onready var room_detector = get_node('room_detector')
 @onready var movement = get_node('movement')
@@ -160,3 +161,7 @@ func get_current_state():
 func move_to(room_node):
 	self.reparent(room_node)
 	position = Vector2.ZERO
+
+func add_attribute(new_attribute):
+	attributes.append(new_attribute)
+	guest_overview.queue_update_overview()
