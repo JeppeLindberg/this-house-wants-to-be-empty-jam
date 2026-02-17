@@ -15,6 +15,20 @@ func trigger_day_end():
 		await day_end_callables[i].callable.call()			
 
 
+var prepare_next_day_callables = []
+
+func subscribe_prepare_next_day_callables(node, callable):
+	prepare_next_day_callables.append({'node': node, 'callable': callable})
+
+func trigger_prepare_next_day():
+	for i in range(len(prepare_next_day_callables)-1, -1, -1):
+		if prepare_next_day_callables[i].node == null or prepare_next_day_callables[i].node.is_queued_for_deletion():
+			prepare_next_day_callables.remove_at(i)
+			continue;
+
+		prepare_next_day_callables[i].callable.call()
+
+
 var day_start_callables = []
 
 func subscribe_day_start_callables(node, callable):
@@ -26,4 +40,4 @@ func trigger_day_start():
 			day_start_callables.remove_at(i)
 			continue;
 
-		await day_start_callables[i].callable.call()
+		await day_start_callables[i].callable.call()		

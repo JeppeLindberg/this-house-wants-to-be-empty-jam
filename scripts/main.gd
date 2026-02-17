@@ -16,13 +16,13 @@ func _process(_delta: float) -> void:
 	fast_forward = Input.is_action_pressed('fast_forward')
 
 func world_time_mult():
-	var mult = 1.0
-	mult *= global_time_mult()
+	if time_mgt != null and time_mgt.between_days:
+		return 0.0
 
 	if event_feed != null and event_feed.visible:
 		return 0.0
 
-	return mult
+	return global_time_mult()
 
 func global_time_mult():
 	if fast_forward:
@@ -86,3 +86,4 @@ func is_child_of(node, parent):
 			return true
 		
 	return false
+

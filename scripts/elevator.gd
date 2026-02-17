@@ -18,7 +18,7 @@ const WAIT_SECONDS = 1.0
 func _ready() -> void:
 	add_to_group('elevator')
 
-	subscriber_mgt.subscribe_day_start_callables(self, prepare_next_day)
+	subscriber_mgt.subscribe_prepare_next_day_callables(self, prepare_next_day)
 
 func prepare_next_day():
 	floor_queue = []

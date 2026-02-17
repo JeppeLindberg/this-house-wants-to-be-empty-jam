@@ -1,15 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhe7jcpllmb3t"]
+[gd_scene load_steps=7 format=3 uid="uid://bhe7jcpllmb3t"]
 
 [ext_resource type="Script" uid="uid://wtroyfgdttn4" path="res://scripts/room.gd" id="1_p3u21"]
 [ext_resource type="Script" uid="uid://dgfx82vl2w5b8" path="res://scripts/door.gd" id="2_y72nq"]
 [ext_resource type="PackedScene" uid="uid://dsqcyyjt3hacl" path="res://prefabs/guest_interactable.tscn" id="3_0dyi5"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_gyfg6"]
+[ext_resource type="PackedScene" uid="uid://dhsbrfkabk6im" path="res://prefabs/helper_interactable.tscn" id="5_y72nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
 size = Vector2(150, 143)
 
-[node name="room" type="Area2D"]
+[node name="room" type="Area2D" node_paths=PackedStringArray("out_of_order_visual")]
 script = ExtResource("1_p3u21")
+out_of_order_visual = NodePath("visual/out_of_order")
 
 [node name="door" type="Node2D" parent="."]
 position = Vector2(40, 0)
@@ -39,8 +41,32 @@ position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_a8y0u")
 debug_color = Color(0, 0.6, 0.69803923, 0)
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="visual" type="Node2D" parent="."]
+
+[node name="sprite" type="Sprite2D" parent="visual"]
 self_modulate = Color(0.5137255, 1, 0.5372549, 0.5019608)
 z_index = -335
 scale = Vector2(1.5, 1.414)
 texture = ExtResource("4_gyfg6")
+
+[node name="out_of_order" type="Node2D" parent="visual"]
+
+[node name="Label" type="Label" parent="visual/out_of_order"]
+self_modulate = Color(1, 0, 0, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -68.5
+offset_right = 31.0
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="helper_interactable" parent="." instance=ExtResource("5_y72nq")]

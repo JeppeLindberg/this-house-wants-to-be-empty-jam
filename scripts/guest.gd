@@ -42,7 +42,7 @@ func _ready() -> void:
 			discuss_stay_event_script = child
 	
 	subscriber_mgt.subscribe_day_end_callables(self, collect_rent)
-	subscriber_mgt.subscribe_day_start_callables(self, prepare_next_day)
+	subscriber_mgt.subscribe_prepare_next_day_callables(self, prepare_next_day)
 
 func collect_rent():
 	if 'assigned_room' in attributes:

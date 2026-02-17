@@ -18,7 +18,7 @@ var manuscript = {
 		]
 	},
 	'1': {
-		'talker_style': '<talker,Bounty Hunter>',
+		'talker_style': '<name,Bounty Hunter>',
 		'talker': '???',
 		'text': 'Scotch and a beer.',
 		'buttons': [
@@ -41,7 +41,7 @@ var manuscript = {
 		]
 	},
 	'3': {
-		'talker_style': '<talker,Bounty Hunter>',
+		'talker_style': '<name,Bounty Hunter>',
 		'talker': '???',
 		'text': 'You mean to tell me that I cannot even get a stiff drink at a motel nowadays?',
 		'buttons': [

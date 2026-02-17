@@ -20,8 +20,8 @@
 [ext_resource type="Script" uid="uid://n1vloh3qcmi4" path="res://scripts/floor_mgt.gd" id="9_muem4"]
 [ext_resource type="Script" uid="uid://ctr5h0etfm8cx" path="res://scripts/event_feed.gd" id="10_y6deb"]
 [ext_resource type="PackedScene" uid="uid://blayfjgy8vr41" path="res://prefabs/guest_tasks/hesitate.tscn" id="10_yc10j"]
-[ext_resource type="PackedScene" uid="uid://bystq3vk3iwi2" path="res://prefabs/event_feed_text.tscn" id="11_og1vs"]
-[ext_resource type="PackedScene" uid="uid://b32fxa1n28wyu" path="res://prefabs/event_feed_button.tscn" id="12_2wyq8"]
+[ext_resource type="PackedScene" uid="uid://bystq3vk3iwi2" path="res://prefabs/ui/ui_event_feed_text.tscn" id="11_og1vs"]
+[ext_resource type="PackedScene" uid="uid://b32fxa1n28wyu" path="res://prefabs/ui/ui_event_feed_button.tscn" id="12_2wyq8"]
 [ext_resource type="PackedScene" uid="uid://dxjtphs6bqbam" path="res://prefabs/event.tscn" id="12_gqmmt"]
 [ext_resource type="PackedScene" uid="uid://dyijearirnba0" path="res://prefabs/guest_tasks/wait_for_event_finished.tscn" id="13_pm3ni"]
 [ext_resource type="PackedScene" uid="uid://bsfthsdopw7rv" path="res://prefabs/guest_tasks/leave_motel.tscn" id="14_vxglm"]
@@ -41,7 +41,7 @@
 [ext_resource type="Texture2D" uid="uid://dxtodua1ohkjp" path="res://sprites/white_circle.png" id="34_dgi5k"]
 [ext_resource type="PackedScene" uid="uid://wufa8gi4e374" path="res://prefabs/helper.tscn" id="35_j8jky"]
 [ext_resource type="Script" uid="uid://bspnd7h12j5d7" path="res://scripts/idle_helpers.gd" id="37_pibwh"]
-[ext_resource type="PackedScene" uid="uid://co7qdefcn7yta" path="res://prefabs/ui_guest_summary.tscn" id="42_2cjbq"]
+[ext_resource type="PackedScene" uid="uid://co7qdefcn7yta" path="res://prefabs/ui/ui_guest_summary.tscn" id="42_2cjbq"]
 [ext_resource type="Script" uid="uid://b4dvjsgvi5uxq" path="res://scripts/ui_guest_overview.gd" id="42_chjal"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
@@ -176,6 +176,27 @@ number = 2
 [node name="room_3" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
 position = Vector2(625, 0)
 number = 3
+starts_out_of_order = true
+
+[node name="room_4" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
+position = Vector2(799, 0)
+number = 4
+starts_out_of_order = true
+
+[node name="room_5" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
+position = Vector2(-188, 0)
+number = 5
+starts_out_of_order = true
+
+[node name="room_6" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
+position = Vector2(-372, 0)
+number = 6
+starts_out_of_order = true
+
+[node name="room_7" parent="world/floor_2" instance=ExtResource("18_2f3dj")]
+position = Vector2(-553, 0)
+number = 7
+starts_out_of_order = true
 
 [node name="elevator" type="Area2D" parent="world/floor_2" node_paths=PackedStringArray("floor_1", "floor_2")]
 script = ExtResource("2_o6xl0")
@@ -273,6 +294,7 @@ vertical_alignment = 1
 position = Vector2(-113, 0)
 
 [node name="event_feed" type="Node2D" parent="." node_paths=PackedStringArray("feed_container")]
+visible = false
 z_index = 2055
 position = Vector2(6, -97)
 script = ExtResource("10_y6deb")

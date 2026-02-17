@@ -88,12 +88,25 @@ Rettet bug med elevator når den er nede i starten
 
 Tilføjet oversigt over gæster, helt basic
 
+# 26-02-17
+
+Udvidet oversigt over gæster
+
+Tilføjet traits til gæster
+
+Tilføjet debugging tool fast forward
+
+VÆRELSER KAN NU BLIVE FIXET AF HJÆLPERE, SOM ARBEJDER PÅ DET I LØBET AF NATTEN
+
+Det er nu muligt at have subscribed events i starten af dagen
+
+Tiden pauser nu når dagen slutter + starter
+
 # To do
 
 Opret tids-system
 * Indtil videre skal spillet kun vare 1 uge, senere udvides dette til at vare længere. Demo skal være lille
 * I slutningen af hver uge skal hjælpere nulstilles
-* I løbet af dagen skal et ur tælle tid, og kunne trigger visse ting såsom at der ankommer nye gæster
 
 Opret forskellige typer gæster, som har forskellig dialog når de indlogerer
 * Bounty hunter

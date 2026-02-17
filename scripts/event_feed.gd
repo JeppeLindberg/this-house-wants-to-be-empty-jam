@@ -45,9 +45,9 @@ func go_to(denoter):
 
 		var talker = current_script.manuscript[denoter]['talker']
 		if talker_style == '':
-			talker_style = '<talker,' + talker + '>'
+			talker_style = '<name,' + talker + '>'
 
-		add_text(talker, talker_style)
+		add_text(talker, talker_style, 10000)
 
 	var text_style = ''
 	if 'text_style' in current_script.manuscript[denoter]:
@@ -61,10 +61,10 @@ func clear():
 	for child in feed_container.get_children():
 		child.queue_free()
 
-func add_text(new_text, text_style = ''):
+func add_text(new_text, text_style = '', symbols = 0):
 	var new_feed_text = event_feed_text_prefab.instantiate()
 	new_feed_text.set_normal_tag(text_style)
-	new_feed_text.set_text_raw(new_text)
+	new_feed_text.set_text_raw(new_text, symbols)
 	feed_container.add_child(new_feed_text)
 
 func add_button(new_button_dict):

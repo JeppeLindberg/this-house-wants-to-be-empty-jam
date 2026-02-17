@@ -10,10 +10,10 @@ var extra_effects = \
 	'<narration>': '[color c=#AAAAAA]@[/color]',
 	'<wave>': '[custom_wave index=%]@[/custom_wave]',
 	'<trait>': '[color c=#558b99]@[/color]',
-	'<talker,Naomi>': '[talker color=#559955 index=%]@[/talker]',
-	'<talker,Stranger>': '[talker color=#555599 index=%]@[/talker]',
-	'<talker,Bounty Hunter>': '[talker color=#997455 index=%]@[/talker]',
-	'<talker,Vampire>': '[talker color=#995555 index=%]@[/talker]',
+	'<name,Naomi>': '[name color=#559955 index=%]@[/name]',
+	'<name,Stranger>': '[name color=#555599 index=%]@[/name]',
+	'<name,Bounty Hunter>': '[name color=#997455 index=%]@[/name]',
+	'<name,Vampire>': '[name color=#995555 index=%]@[/name]',
 }
 
 var all_symbols_visible = false
@@ -25,7 +25,7 @@ func _ready() -> void:
 	install_effect(RichTextAlpha.new())
 	install_effect(RichTextColor.new())
 	install_effect(RichTextCustomWave.new())
-	install_effect(RichTextTalker.new())
+	install_effect(RichTextName.new())
 
 func set_normal_tag(new_normal_tag):
 	if new_normal_tag != '':
@@ -39,7 +39,7 @@ func set_text_raw(raw, symbols = 0):
 	if skip_scrolling_text:
 		_symbols_progress = 10000.0
 
-	text = _raw_to_bb(_raw, int(_symbols_progress))
+	text = _raw_to_bb(_raw, 0)
 
 func progress_symbols(delta):
 	_symbols_progress += delta
@@ -62,8 +62,6 @@ func _raw_to_bb(raw, symbols):
 			if raw.substr(raw_index).begins_with(effect):
 				raw_index += len(effect)
 				current_extra_effect = effect
-
-		free_symbol = 'talker' in current_extra_effect
 
 		if raw_index < len(raw):
 			var next_output = raw[raw_index]

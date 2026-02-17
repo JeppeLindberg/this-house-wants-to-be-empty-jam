@@ -2,14 +2,13 @@ extends Node
 
 @onready var main = get_node('/root/main')
 @onready var events = get_node('/root/main/events')
+@onready var time_mgt = get_node('/root/main/time_mgt')
 
 @export var event_prefab: PackedScene
 
-var allow_new_events = true
-
 
 func spawn_event(event_script, source_node):
-	if not allow_new_events:
+	if time_mgt.between_days:
 		return null
 
 	var event = event_prefab.instantiate()

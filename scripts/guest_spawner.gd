@@ -12,7 +12,7 @@ extends Node
 
 
 func _ready() -> void:
-	subscriber_mgt.subscribe_day_start_callables(self, prepare_spawns_for_today)
+	subscriber_mgt.subscribe_prepare_next_day_callables(self, prepare_spawns_for_today)
 
 func prepare_spawns_for_today():
 	var entrance = main.get_children_in_group(world,'entrance')[0]

@@ -1,10 +1,10 @@
 @tool
 extends RichTextEffect
-class_name RichTextTalker
+class_name RichTextName
 
-# Syntax: [talker index=0 color=#FFFFFF][/talker]
+# Syntax: [name index=0 color=#FFFFFF][/name]
 
-var bbcode = "talker"
+var bbcode = "name"
 
 func _process_custom_fx(char_fx):
 	var _index = char_fx.env.get("index", 0)

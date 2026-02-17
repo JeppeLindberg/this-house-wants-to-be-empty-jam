@@ -18,7 +18,7 @@ var manuscript = {
 		]
 	},
 	'1': {
-		'talker_style': '<talker,Vampire>',
+		'talker_style': '<name,Vampire>',
 		'talker': '???',
 		'text': 'Good afternoon, darling.',
 		'buttons': [
@@ -41,7 +41,7 @@ var manuscript = {
 		]
 	},
 	'3': {
-		'talker_style': '<talker,Vampire>',
+		'talker_style': '<name,Vampire>',
 		'talker': '???',
 		'text': 'Do you have any rooms free? I would like to have one for a couple of nights.',
 		'buttons': [
