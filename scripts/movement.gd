@@ -6,24 +6,27 @@ extends Node2D
 const MOVE_SPEED = 100.0
 
 var target_movement = 'none'
+var target_position_x = 0.0
 
 func _process(delta: float) -> void:
 	delta *= main.world_time_mult()
 	
-	var x_direction = 0.0
+	var x_movement = 0.0
 	if target_movement == 'left':
-		x_direction -= 1.0
+		x_movement += 1.0
 	if target_movement == 'right':
-		x_direction += 1.0
+		x_movement += 1.0
 
-	get_parent().global_position.x += x_direction * MOVE_SPEED * delta
+	get_parent().global_position.x = move_toward(get_parent().global_position.x, target_position_x, x_movement * MOVE_SPEED * delta)
 
-func move_toward(node, queue_behind_nodes_with_tasks = [], queue_behind_nodes_in_state = []):	
-	if abs(node.global_position.x - get_parent().global_position.x) < 1.0:
+func walk_toward(node, queue_behind_nodes_with_tasks = [], queue_behind_nodes_in_state = []):	
+	target_position_x = node.global_position.x
+
+	if abs(target_position_x - get_parent().global_position.x) < 1.0:
 		target_movement = 'none'
-	elif node.global_position.x < get_parent().global_position.x:
+	elif target_position_x < get_parent().global_position.x:
 		target_movement = 'left'
-	elif get_parent().global_position.x < node.global_position.x:
+	elif get_parent().global_position.x < target_position_x:
 		target_movement = 'right'
 	
 	if queue_behind_nodes_with_tasks == [] and queue_behind_nodes_in_state == []:

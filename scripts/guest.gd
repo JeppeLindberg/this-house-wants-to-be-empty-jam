@@ -140,7 +140,7 @@ func set_state(new_state):
 	state = new_state
 
 func move_guest_toward(node, queue_behind_nodes_with_tasks = [], queue_behind_nodes_in_state = []):	
-	movement.move_toward(node, queue_behind_nodes_with_tasks, queue_behind_nodes_in_state)
+	movement.walk_toward(node, queue_behind_nodes_with_tasks, queue_behind_nodes_in_state)
 
 	if movement.target_movement == 'queued':
 		clear_tasks()
