@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnj08d5m1a422"]
+[gd_scene load_steps=9 format=3 uid="uid://bnj08d5m1a422"]
 
 [ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="1_2mcac"]
 [ext_resource type="Script" uid="uid://b7wp5qp8423kg" path="res://scripts/movement.gd" id="2_q5e8g"]
+[ext_resource type="Script" uid="uid://b4m1lxjnf75s0" path="res://scripts/traits/trait_nocturnal.gd" id="2_ve4n5"]
 [ext_resource type="Script" uid="uid://upvb6aluqw4w" path="res://scripts/event_scripts/vampire_discuss_stay.gd" id="3_2mcac"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_7smdi"]
 
@@ -25,6 +26,11 @@ shape = SubResource("CircleShape2D_kisif")
 disabled = true
 
 [node name="tasks" type="Node2D" parent="."]
+
+[node name="traits" type="Node2D" parent="."]
+
+[node name="nocturnal" type="Node2D" parent="traits"]
+script = ExtResource("2_ve4n5")
 
 [node name="movement" type="Node2D" parent="."]
 script = ExtResource("2_q5e8g")

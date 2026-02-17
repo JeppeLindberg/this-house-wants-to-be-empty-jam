@@ -15,7 +15,7 @@ var weekday = 1
 var hour = 0.0
 
 func _process(delta: float) -> void:
-	hour += delta * main.time_mult()
+	hour += delta * main.world_time_mult()
 	if hour > 24.0:
 		hour = 24.0
 

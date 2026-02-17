@@ -12,6 +12,9 @@ extends Area2D
 @onready var event_scripts = get_node('event_scripts')
 @onready var room_detector = get_node('room_detector')
 @onready var movement = get_node('movement')
+@onready var traits = get_node('traits')
+
+@export var guest_name = ''
 
 var discuss_stay_event_script: Node2D
 
@@ -58,7 +61,7 @@ func _process(delta: float) -> void:
 	if main.is_disabled(self):
 		return
 
-	delta *= main.time_mult()
+	delta *= main.world_time_mult()
 	lifetime += delta
 
 	_detect_current_room()
@@ -165,3 +168,6 @@ func move_to(room_node):
 func add_attribute(new_attribute):
 	attributes.append(new_attribute)
 	guest_overview.queue_update_overview()
+
+
+

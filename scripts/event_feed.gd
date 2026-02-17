@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var main = get_node('/root/main')
+
 @export var feed_container: VBoxContainer
 @export var event_feed_text_prefab: PackedScene
 @export var event_feed_button_prefab: PackedScene
@@ -11,6 +13,8 @@ const SYMBOLS_PER_SEC = 30.0
 
 
 func _process(delta: float) -> void:
+	delta *= main.global_time_mult()
+
 	visible = feed_container.get_child_count() != 0
 
 	for child in feed_container.get_children():

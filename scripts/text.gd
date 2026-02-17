@@ -1,5 +1,6 @@
 extends RichTextLabel
 
+@export var skip_scrolling_text = false
 
 var _normal_tag = '<normal>'
 
@@ -8,10 +9,11 @@ var extra_effects = \
 	'<normal>': '@',
 	'<narration>': '[color c=#AAAAAA]@[/color]',
 	'<wave>': '[custom_wave index=%]@[/custom_wave]',
+	'<trait>': '[color c=#558b99]@[/color]',
 	'<talker,Naomi>': '[talker color=#559955 index=%]@[/talker]',
 	'<talker,Stranger>': '[talker color=#555599 index=%]@[/talker]',
 	'<talker,Bounty Hunter>': '[talker color=#997455 index=%]@[/talker]',
-	'<talker,Vampire>': '[talker color=#995555 index=%]@[/talker]'
+	'<talker,Vampire>': '[talker color=#995555 index=%]@[/talker]',
 }
 
 var all_symbols_visible = false
@@ -34,7 +36,10 @@ func set_text_raw(raw, symbols = 0):
 	_raw = raw
 	_symbols_progress = float(symbols)
 
-	text = _raw_to_bb(_raw, 0)
+	if skip_scrolling_text:
+		_symbols_progress = 10000.0
+
+	text = _raw_to_bb(_raw, int(_symbols_progress))
 
 func progress_symbols(delta):
 	_symbols_progress += delta

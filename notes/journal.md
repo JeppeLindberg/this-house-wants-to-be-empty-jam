@@ -84,6 +84,10 @@ Events pauser nu spillet mens de bliver resolved
 
 Rettet bug med elevator når den er nede i starten
 
+# 26-02-16
+
+Tilføjet oversigt over gæster, helt basic
+
 # To do
 
 Opret tids-system
@@ -105,7 +109,13 @@ Opret system til at købe terminaler til dit motel
 
 Ting der skal være i demoen:
 * Tutorial system der via dialog fortæller hvad spilleren skal gøre
+  - Naomi påkalder en demon (dig)
+  - Hun siger at hun ikke gider at manage et motel, så det skal du gøre
+  - Hun vil hellere være receptionist
 * Gæst oversigt
+  - Mangler traits 
+	- Nocturnal (Kommer om morgenen og forlader om aftenen)
+	- Alcoholic (Interesseret i sprut)
 * Krav at spilleren skal bruge alle hjælpere hver dag
 
 # To do VISUAL

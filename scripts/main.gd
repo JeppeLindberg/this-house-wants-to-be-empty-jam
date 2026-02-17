@@ -6,13 +6,27 @@ extends Node
 @onready var time_mgt = get_node('/root/main/time_mgt')
 @onready var event_feed = get_node('/root/main/event_feed')
 
+var fast_forward = false
+
 
 func _ready():
 	time_mgt.start_first_day()
 
-func time_mult():
+func _process(_delta: float) -> void:	
+	fast_forward = Input.is_action_pressed('fast_forward')
+
+func world_time_mult():
+	var mult = 1.0
+	mult *= global_time_mult()
+
 	if event_feed != null and event_feed.visible:
 		return 0.0
+
+	return mult
+
+func global_time_mult():
+	if fast_forward:
+		return 5.0
 
 	return 1.0
 

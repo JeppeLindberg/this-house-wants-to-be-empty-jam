@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbletts04uktj"]
+[gd_scene load_steps=9 format=3 uid="uid://bbletts04uktj"]
 
 [ext_resource type="Script" uid="uid://c1ctkr552ufcw" path="res://scripts/guest.gd" id="1_5ji1b"]
 [ext_resource type="Script" uid="uid://b7wp5qp8423kg" path="res://scripts/movement.gd" id="2_hg62s"]
+[ext_resource type="Script" uid="uid://bdi7q2e3k4ryo" path="res://scripts/traits/trait_alcoholic.gd" id="2_m5kio"]
 [ext_resource type="Script" uid="uid://detslhqbw82gg" path="res://scripts/event_scripts/bounty_hunter_discuss_stay.gd" id="3_5ji1b"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_t7v1v"]
 
@@ -25,6 +26,11 @@ shape = SubResource("CircleShape2D_kisif")
 disabled = true
 
 [node name="tasks" type="Node2D" parent="."]
+
+[node name="traits" type="Node2D" parent="."]
+
+[node name="alcoholic" type="Node2D" parent="traits"]
+script = ExtResource("2_m5kio")
 
 [node name="movement" type="Node2D" parent="."]
 script = ExtResource("2_hg62s")
