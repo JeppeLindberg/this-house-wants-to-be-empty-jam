@@ -102,6 +102,14 @@ Det er nu muligt at have subscribed events i starten af dagen
 
 Tiden pauser nu når dagen slutter + starter
 
+# 26-02-18
+
+Har samlet nogle reference billeder så det bliver nemmere at lave det visuelle
+
+Har tilrettet sådan at der spawner en hjælper på 3. dagen i stedet
+
+Har fixet bug der lader spilleren starte en ny dag imellem dage
+
 # To do
 
 Opret tids-system
@@ -129,9 +137,18 @@ Ting der skal være i demoen:
   - Mangler traits 
 	- Nocturnal (Kommer om morgenen og forlader om aftenen)
 	- Alcoholic (Interesseret i sprut)
-* Krav at spilleren skal bruge alle hjælpere hver dag
+	- Noisy (Laver larm når de er i deres rum)
+	- Sensitive (Kan ikke tåle larm fra naboer når de er i deres rum)
+* Der skal spawne en ny hjælper hver 3. dag
 
 # To do VISUAL
+
+Assets for motel:
+* The misty lodge motel
+* Skal være i 2 etager
+* Hovedetagen i lobbien skal man kunne se ind
+* Ved siden af lobbyen skal der være terminaler til hjælpere
+* På 1. sal er alle rummene
 
 Assets for Naomi (receptionist)
 * Hun er en lazy goth teenager som påkalder en demon for at styre motellet

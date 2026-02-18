@@ -346,10 +346,9 @@ position = Vector2(321, -374)
 [node name="idle_helpers" type="Node2D" parent="."]
 position = Vector2(-27, 174)
 script = ExtResource("37_pibwh")
+helper_prefab = ExtResource("35_j8jky")
 
 [node name="helper_slot_1" type="Node2D" parent="idle_helpers"]
-
-[node name="helper" parent="idle_helpers/helper_slot_1" instance=ExtResource("35_j8jky")]
 
 [node name="helper_slot_2" type="Node2D" parent="idle_helpers"]
 position = Vector2(50, 0)

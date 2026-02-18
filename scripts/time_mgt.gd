@@ -14,6 +14,9 @@ func start_first_day():
 	
 
 func go_to_next_day():
+	if between_days == true:
+		return
+
 	var _new_week = false
 
 	between_days = true
