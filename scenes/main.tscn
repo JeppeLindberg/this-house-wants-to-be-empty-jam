@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=52 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -32,6 +32,8 @@
 [ext_resource type="Script" uid="uid://dw8h4h32orb0j" path="res://scripts/guest_spawner.gd" id="19_pibwh"]
 [ext_resource type="PackedScene" uid="uid://c6b7tk2ssg523" path="res://prefabs/delayed_spawner.tscn" id="20_c6pm6"]
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
+[ext_resource type="Texture2D" uid="uid://ciqtbhwvojvsx" path="res://sprites/simple/motel_interior.png" id="25_vchkt"]
+[ext_resource type="Texture2D" uid="uid://dvxa3hi5v2obu" path="res://sprites/simple/motel_exterior.png" id="26_txyw0"]
 [ext_resource type="PackedScene" uid="uid://ccgk4hd140t4w" path="res://prefabs/helper_phone.tscn" id="28_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
 [ext_resource type="PackedScene" uid="uid://bbletts04uktj" path="res://prefabs/guests/bounty_hunter.tscn" id="30_c6pm6"]
@@ -157,6 +159,16 @@ position = Vector2(-7, -2)
 
 [node name="camera" type="Camera2D" parent="."]
 position = Vector2(132, -99)
+
+[node name="static" type="Node2D" parent="."]
+
+[node name="interior" type="Sprite2D" parent="static"]
+position = Vector2(-7.5, -252.5)
+texture = ExtResource("25_vchkt")
+
+[node name="exterior" type="Sprite2D" parent="static"]
+position = Vector2(-7.5, -252.5)
+texture = ExtResource("26_txyw0")
 
 [node name="world" type="Node2D" parent="."]
 
