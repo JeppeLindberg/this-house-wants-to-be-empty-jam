@@ -110,6 +110,23 @@ Har tilrettet sådan at der spawner en hjælper på 3. dagen i stedet
 
 Har fixet bug der lader spilleren starte en ny dag imellem dage
 
+# 26-02-19
+
+Oprettet simpel sprite af motel exterior og interior
+
+Oprettet motel visuel
+* På 1. sal er alle værelserne
+* The misty lodge motel
+* Skal være i 2 etager
+* Hovedetagen i lobbien skal man kunne se ind
+
+# 26-02-23
+
+Oprettet nogle template grids for at lave assets hurtigt
+
+OPRETTET Assets for Naomi (receptionist)
+* Hun er en lazy goth teenager som påkalder en demon for at styre motellet
+
 # To do
 
 Opret tids-system
@@ -144,14 +161,7 @@ Ting der skal være i demoen:
 # To do VISUAL
 
 Assets for motel:
-* The misty lodge motel
-* Skal være i 2 etager
-* Hovedetagen i lobbien skal man kunne se ind
 * Ved siden af lobbyen skal der være terminaler til hjælpere
-* På 1. sal er alle rummene
-
-Assets for Naomi (receptionist)
-* Hun er en lazy goth teenager som påkalder en demon for at styre motellet
 
 Assets for Bounty hunter
 * Grizzed individual, som en veteran der for længst har fået nok

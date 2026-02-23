@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://bdjeq1dahcop1"]
+[gd_scene load_steps=54 format=3 uid="uid://bdjeq1dahcop1"]
 
 [ext_resource type="Script" uid="uid://d0kxc6xmbpclh" path="res://scripts/reception.gd" id="1_jyhfs"]
 [ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="1_o5qli"]
@@ -34,6 +34,8 @@
 [ext_resource type="Script" uid="uid://c8802f0265m5l" path="res://scripts/lobby.gd" id="23_yq6so"]
 [ext_resource type="Texture2D" uid="uid://ciqtbhwvojvsx" path="res://sprites/simple/motel_interior.png" id="25_vchkt"]
 [ext_resource type="Texture2D" uid="uid://dvxa3hi5v2obu" path="res://sprites/simple/motel_exterior.png" id="26_txyw0"]
+[ext_resource type="Texture2D" uid="uid://cwgog4261yptj" path="res://sprites/simple/naomi.tres" id="27_txyw0"]
+[ext_resource type="Texture2D" uid="uid://dewfq1q4heidg" path="res://sprites/simple/desk.png" id="27_vc5cj"]
 [ext_resource type="PackedScene" uid="uid://ccgk4hd140t4w" path="res://prefabs/helper_phone.tscn" id="28_kmb1v"]
 [ext_resource type="PackedScene" uid="uid://c358xax7pu2rn" path="res://prefabs/clock.tscn" id="29_yq6so"]
 [ext_resource type="PackedScene" uid="uid://bbletts04uktj" path="res://prefabs/guests/bounty_hunter.tscn" id="30_c6pm6"]
@@ -166,7 +168,16 @@ position = Vector2(132, -99)
 position = Vector2(-7.5, -252.5)
 texture = ExtResource("25_vchkt")
 
+[node name="sprite" type="Sprite2D" parent="static"]
+position = Vector2(333, 18)
+texture = ExtResource("27_txyw0")
+
+[node name="desk" type="Sprite2D" parent="static"]
+position = Vector2(-7.5, -230.5)
+texture = ExtResource("27_vc5cj")
+
 [node name="exterior" type="Sprite2D" parent="static"]
+visible = false
 position = Vector2(-7.5, -252.5)
 texture = ExtResource("26_txyw0")
 
