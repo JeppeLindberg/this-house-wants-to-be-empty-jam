@@ -127,6 +127,14 @@ Oprettet nogle template grids for at lave assets hurtigt
 OPRETTET Assets for Naomi (receptionist)
 * Hun er en lazy goth teenager som påkalder en demon for at styre motellet
 
+# 26-02-25
+
+Arbejdet på Bounty Hunter visuals
+
+# 26-02-26
+
+Færdiggjort simple visuals for bounty hunter
+
 # To do
 
 Opret tids-system

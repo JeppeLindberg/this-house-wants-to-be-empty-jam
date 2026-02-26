@@ -181,6 +181,9 @@ visible = false
 position = Vector2(-7.5, -252.5)
 texture = ExtResource("26_txyw0")
 
+[node name="bounty_hunter" parent="static" instance=ExtResource("30_c6pm6")]
+position = Vector2(423, -2)
+
 [node name="world" type="Node2D" parent="."]
 
 [node name="floor_2" type="Node2D" parent="world"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b7wp5qp8423kg" path="res://scripts/movement.gd" id="2_hg62s"]
 [ext_resource type="Script" uid="uid://bdi7q2e3k4ryo" path="res://scripts/traits/trait_alcoholic.gd" id="2_m5kio"]
 [ext_resource type="Script" uid="uid://detslhqbw82gg" path="res://scripts/event_scripts/bounty_hunter_discuss_stay.gd" id="3_5ji1b"]
-[ext_resource type="Texture2D" uid="uid://clr4ks4ir7l7v" path="res://sprites/white.png" id="4_t7v1v"]
+[ext_resource type="Texture2D" uid="uid://i501mivgyqan" path="res://sprites/simple/bounty_hunter.tres" id="5_hg62s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4b0du"]
 radius = 27.0
@@ -47,6 +47,4 @@ script = ExtResource("3_5ji1b")
 [node name="visual" type="Node2D" parent="."]
 
 [node name="sprite" type="Sprite2D" parent="visual"]
-self_modulate = Color(0.6, 0.45490196, 0.33333334, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("4_t7v1v")
+texture = ExtResource("5_hg62s")
