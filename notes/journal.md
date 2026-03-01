@@ -135,6 +135,10 @@ Arbejdet på Bounty Hunter visuals
 
 Færdiggjort simple visuals for bounty hunter
 
+Importeret sprite til bounty hunter til prefab
+
+# 26-02-27
+
 # To do
 
 Opret tids-system
